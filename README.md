@@ -1,5 +1,6 @@
 # Show Finder
 ## Links
+[ERD](https://dbdiagram.io/d/60b6c36fb29a09603d178e17)
 ## Sample API Calls
 GET Artist ID from Songkick API using this call:
 ```
