@@ -1,9 +1,28 @@
 # Show Finder
+## Overview
+This app is a capstone project for the front-end portion of the Nashville Software School. It is a demonstration of my ability in React.js and Firebase CRUD.
+
+Show Finder is an app that allows a user to search for artists and find their upcoming events and subsequently save those events to their user profile. They will be able to create, read, update and delete these events in Google Firebase.
 ## Motivation
 As a musician and concert lover, I try to keep up on when my favorite bands/artists are playing and where I can go to see them. I wanted to build an app that allows a user to search for and save events and artists to their user profile, allowing them to easily keep track of upcoming shows and events that I want to attend. The purpose of this app is to aggregate a person's show calendar and preferences into one page. 
+## User Story
+- Google Authentication
+- User can search for new artists and find their upcoming events
+- User can save artists to their profile as followed artists
+  - Artists can be unfollowed
+- User can save events to their profile as upcoming events
+  - Events can be deleted
+  - Events can be updated
+- App features responsive design
+
+## Sreenshots
+
 ## Relevant Links
 [ERD](https://dbdiagram.io/d/60b6c36fb29a09603d178e17)
 
+[Wireframe](https://www.canva.com/design/DAEgMNWyiOg/EALPQ0wxSDoAr15sMTPSsA/view?utm_content=DAEgMNWyiOg&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu#4)
+
+[Songkick API](https://www.songkick.com/developer)
 ## Sample API Calls
 GET Artist ID from Songkick API using this call:
 ```
