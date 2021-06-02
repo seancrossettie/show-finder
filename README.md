@@ -1,6 +1,9 @@
 # Show Finder
-## Links
+## Motivation
+As a musician and concert lover, I try to keep up on when my favorite bands/artists are playing and where I can go to see them. I wanted to build an app that allows a user to search for and save events and artists to their user profile, allowing them to easily keep track of upcoming shows and events that I want to attend. The purpose of this app is to aggregate a person's show calendar and preferences into one page. 
+## Relevant Links
 [ERD](https://dbdiagram.io/d/60b6c36fb29a09603d178e17)
+
 ## Sample API Calls
 GET Artist ID from Songkick API using this call:
 ```
