@@ -15,6 +15,10 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
   - Events can be updated
 - App features responsive design
 
+## Contributors
+[Sean Rossettie](https://github.com/seancrossettie)
+ - Link to my [portfolio](https://sean-rossettie.netlify.app/)
+
 ## Sreenshots
 
 ## Relevant Links
