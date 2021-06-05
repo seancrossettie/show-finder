@@ -1,13 +1,15 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import HomeButton from '../components/HomeButton';
 
-const notFound = () => {
+const NotFound = () => {
   console.warn('not found');
   return (
     <>
-      <Typography>Page not found</Typography>
+      <Typography>Page Not Found</Typography>
+      <HomeButton />
     </>
   );
 };
 
-export default notFound;
+export default NotFound;

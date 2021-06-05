@@ -1,13 +1,15 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import HomeButton from '../components/HomeButton';
 
-const searchPage = () => {
+const SearchPage = () => {
   console.warn('search');
   return (
     <>
       <Typography>Search</Typography>
+      <HomeButton />
     </>
   );
 };
 
-export default searchPage;
+export default SearchPage;

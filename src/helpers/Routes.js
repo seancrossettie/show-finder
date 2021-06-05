@@ -1,19 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import homePage from '../views/homePage';
-import myArtistsPage from '../views/myArtistsPage';
-import myEventsPage from '../views/myEventsPage';
-import notFound from '../views/notFound';
-import searchPage from '../views/searchPage';
+import HomePage from '../views/HomePage';
+import MyArtistsPage from '../views/MyArtistsPage';
+import MyEventsPage from '../views/MyEventsPage';
+import NotFound from '../views/NotFound';
+import SearchPage from '../views/SearchPage';
 
 function Routes() {
   return (
     <Switch>
-      <Route exact path='/' component={homePage} />
-      <Route exact path='/my-artists' component={myArtistsPage} />
-      <Route exact path='/my-events' component={myEventsPage} />
-      <Route exact path='/search' component={searchPage} />
-      <Route exact path='*' component={notFound} />
+      <Route exact path='/' component={HomePage} />
+      <Route exact path='/my-artists' component={MyArtistsPage} />
+      <Route exact path='/my-events' component={MyEventsPage} />
+      <Route exact path='/search' component={SearchPage} />
+      <Route exact path='*' component={NotFound} />
     </Switch>
   );
 }
