@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import Routes from '../../helpers/Routes';
+import { Button } from '@material-ui/core';
+import { signInUser } from '../../helpers/auth';
 
 function App() {
-  // This hook maintains state of user in app, the absense of which resulting in the state of null
   const [user, setUser] = useState(null);
 
-  // Authentication for Firebase on initial render
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed) {
@@ -24,10 +23,12 @@ function App() {
     });
   }, []);
 
+  console.warn(user);
+
   return (
     <>
-      <Routes />
       <h1>React Template</h1>
+      <Button onClick={signInUser}>Signin</Button>
     </>
   );
 }
