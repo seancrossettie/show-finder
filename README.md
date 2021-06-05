@@ -16,9 +16,9 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
 - App features responsive design
 
 ## Contributors
-[Sean Rossettie](https://github.com/seancrossettie) (@seancrossettie)
+[Sean Rossettie](https://github.com/seancrossettie) (@seancrossettie) - [portfolio](https://sean-rossettie.netlify.app/)
  
- Link to my [portfolio site](https://sean-rossettie.netlify.app/)
+
 
 ## Sreenshots
 
