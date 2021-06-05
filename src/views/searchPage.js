@@ -1,6 +1,8 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import HomeButton from '../components/HomeButton';
+import SearchForm from '../components/search page/SearchForm';
+import getArtists from '../helpers/data/artistData';
 
 const SearchPage = () => {
   console.warn('search');
@@ -8,6 +10,8 @@ const SearchPage = () => {
     <>
       <Typography>Search</Typography>
       <HomeButton />
+      <Button onClick={() => getArtists('Incubus')}>Get</Button>
+      <SearchForm />
     </>
   );
 };
