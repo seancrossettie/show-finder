@@ -5,6 +5,14 @@ This app is a capstone project for the front-end portion of the Nashville Softwa
 Show Finder is an app that allows a user to search for artists and find their upcoming events and subsequently save those events to their user profile. They will be able to create, read, update and delete these events in Google Firebase.
 ## Motivation
 As a musician and concert lover, I try to keep up on when my favorite bands/artists are playing and where I can go to see them. I wanted to build an app that allows a user to search for and save events and artists to their user profile, allowing them to easily keep track of upcoming shows and events that I want to attend. The purpose of this app is to aggregate a person's show calendar and preferences into one page. 
+
+## Tech Used
+- React.js
+- Google Auth & Firebase
+- Scss
+- Material UI
+- Songkick API
+- Formik
 ## User Story
 - Google Authentication
 - User can search for new artists and find their upcoming events
@@ -17,7 +25,6 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
 
 ## Contributors
 [Sean Rossettie](https://github.com/seancrossettie) (@seancrossettie) - [portfolio](https://sean-rossettie.netlify.app/)
- 
 
 
 ## Sreenshots
