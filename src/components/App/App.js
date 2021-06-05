@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Routes from '../../helpers/Routes';
+import LoginPage from '../../views/LoginPage';
 
 function App() {
-  // This hook maintains state of user in app, the absense of which resulting in the state of null
   const [user, setUser] = useState(null);
 
-  // Authentication for Firebase on initial render
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed) {
@@ -26,8 +25,10 @@ function App() {
 
   return (
     <>
-      <Routes />
-      <h1>React Template</h1>
+      { user
+        ? <Routes />
+        : <LoginPage />
+      }
     </>
   );
 }
