@@ -1,10 +1,11 @@
 import { Button, TextField } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import ArtistCards from '../Artists/ArtistCards';
 import { getArtists } from '../../helpers/data/artistData';
 
-const SearchForm = () => {
+const SearchForm = ({ user }) => {
   const [searchArtists, setSearchArtists] = useState([]);
 
   const formik = useFormik({
@@ -33,6 +34,7 @@ const SearchForm = () => {
           { searchArtists
             ? searchArtists.map((artist) => (
             <ArtistCards
+              user={user}
               key={artist.id}
               displayName={artist.displayName}
               onTourUntil={artist.onTourUntil}
@@ -44,6 +46,10 @@ const SearchForm = () => {
           }
       </div>
   );
+};
+
+SearchForm.propTypes = {
+  user: PropTypes.object
 };
 
 export default SearchForm;

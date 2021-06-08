@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       { user
-        ? <Routes />
+        ? <Routes user={user}/>
         : <LoginPage />
       }
     </>
