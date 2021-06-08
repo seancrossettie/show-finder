@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import ArtistPage from '../views/ArtistPage';
 import HomePage from '../views/HomePage';
 import MyArtistsPage from '../views/MyArtistsPage';
@@ -7,17 +8,21 @@ import MyEventsPage from '../views/MyEventsPage';
 import NotFound from '../views/NotFound';
 import SearchPage from '../views/SearchPage';
 
-function Routes() {
+function Routes({ user }) {
   return (
     <Switch>
       <Route exact path='/' component={HomePage} />
       <Route exact path='/my-artists' component={MyArtistsPage} />
       <Route exact path='/my-events' component={MyEventsPage} />
-      <Route exact path='/search' component={SearchPage} />
-      <Route path='/artist-events/:id' component={ArtistPage} />
+      <Route exact path='/search' component={() => <SearchPage user={user} />} />
+      <Route path='/artist-events/:id' component={() => <ArtistPage user={user} />} />
       <Route exact path='*' component={NotFound} />
     </Switch>
   );
 }
+
+Routes.propTypes = {
+  user: PropTypes.object
+};
 
 export default Routes;

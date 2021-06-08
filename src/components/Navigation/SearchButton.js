@@ -1,16 +1,17 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
+import { IconButton } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 
 const SearchButton = () => {
   const history = useHistory();
   return (
     <>
-      <Button onClick={() => {
+      <IconButton onClick={() => {
         history.push('/search');
       }}>
-          Search
-      </Button>
+        <SearchIcon />
+      </IconButton>
     </>
   );
 };

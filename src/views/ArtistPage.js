@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 import HomeButton from '../components/Navigation/HomeButton';
 import SearchButton from '../components/Navigation/SearchButton';
 import getArtistEvents from '../helpers/data/eventData';
@@ -22,7 +23,8 @@ const ArtistPage = () => {
       <HomeButton />
       <SearchButton />
       <ArtistPageDisplay displayName={pageArtist.displayName} />
-      {events.map((event) => (
+      { events
+        ? events.map((event) => (
         <EventCards
           key={event.id}
           displayName={event.displayName}
@@ -33,7 +35,9 @@ const ArtistPage = () => {
           uri={event.uri}
           eventId={event.id}
         />
-      ))}
+        ))
+        : <Typography>No Upcoming Events for this Artist</Typography>
+      }
     </>
   );
 };

@@ -10,6 +10,7 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
 - React.js
 - Google Auth & Firebase
 - Scss
+- React Router
 - Material UI
 - Songkick API
 - Formik
