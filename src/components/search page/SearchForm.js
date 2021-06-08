@@ -2,7 +2,7 @@ import { Button, TextField } from '@material-ui/core';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import ArtistCards from '../Artists/ArtistCards';
-import getArtists from '../../helpers/data/artistData';
+import { getArtists } from '../../helpers/data/artistData';
 
 const SearchForm = () => {
   const [searchArtists, setSearchArtists] = useState([]);

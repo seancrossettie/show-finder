@@ -57,7 +57,9 @@ const EventCards = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" to={uri}>Learn More</Button>
+        <Button size="small" onClick={() => (
+          window.open({ uri })
+        )}>Learn More</Button>
       </CardActions>
     </Card>
   );

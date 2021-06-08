@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import ArtistPage from '../views/ArtistPage';
 import HomePage from '../views/HomePage';
 import MyArtistsPage from '../views/MyArtistsPage';
 import MyEventsPage from '../views/MyEventsPage';
@@ -13,6 +14,7 @@ function Routes() {
       <Route exact path='/my-artists' component={MyArtistsPage} />
       <Route exact path='/my-events' component={MyEventsPage} />
       <Route exact path='/search' component={SearchPage} />
+      <Route path='/artist-events/:id' component={ArtistPage} />
       <Route exact path='*' component={NotFound} />
     </Switch>
   );
