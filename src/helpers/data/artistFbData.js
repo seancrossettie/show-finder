@@ -3,9 +3,9 @@ import firebaseConfig from '../apiKeys';
 
 const dbURL = firebaseConfig.databaseURL;
 
-const getMyArtists = () => new Promise((resolve, reject) => {
-  axios.get(`${dbURL}/artists.json`)
-    .then((response) => resolve(response.data))
+const getMyArtists = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/artists.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
 
