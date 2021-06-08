@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Typography } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 import HomeButton from '../components/Navigation/HomeButton';
 import SearchButton from '../components/Navigation/SearchButton';
@@ -22,7 +21,6 @@ const ArtistPage = () => {
     <>
       <HomeButton />
       <SearchButton />
-      <Typography>Artist Events</Typography>
       <ArtistPageDisplay displayName={pageArtist.displayName} />
       {events.map((event) => (
         <EventCards
@@ -34,8 +32,7 @@ const ArtistPage = () => {
           venue={event.displayName}
           uri={event.uri}
           eventId={event.id}
-      />
-
+        />
       ))}
     </>
   );

@@ -10,7 +10,6 @@ const HomePage = () => {
     history.push(page);
   };
 
-  console.warn('home');
   return (
     <>
       <Button onClick={signOutUser}>Sign Out</Button>
