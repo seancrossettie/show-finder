@@ -32,7 +32,8 @@ const ArtistCards = ({
   artistId,
   uri,
   onTourUntil,
-  user
+  user,
+  setUserArtists,
 }) => {
   const classes = useStyles();
   const history = useHistory();
@@ -48,6 +49,25 @@ const ArtistCards = ({
     uid: user.uid,
     favorite: false
   });
+
+  const handleButtonClick = (type) => {
+    switch (type) {
+      case 'create':
+        setFollowArtist({
+          displayName,
+          artistId,
+          uri,
+          uid: user.uid,
+          favorite: false
+        });
+        createArtist(followArtist, user)
+          .then(setUserArtists);
+        history.push('/my-artists');
+        break;
+      default:
+        console.warn('nothing selected');
+    }
+  };
 
   return (
     <>
@@ -65,17 +85,7 @@ const ArtistCards = ({
         </CardContent>
         <CardActions>
           <Button size="small" onClick={() => handleHistory(artistId)}>Events</Button>
-          <Button size="small" onClick={() => {
-            setFollowArtist({
-              displayName,
-              artistId,
-              uri,
-              uid: user.uid,
-              favorite: false
-            });
-            createArtist(followArtist);
-          }}>Follow this artist</Button>
-          <Button size="small" onClick={() => console.warn(followArtist)}>Checking</Button>
+          <Button size="small" onClick={() => handleButtonClick('create')}>Follow this artist</Button>
         </CardActions>
       </Card>
     </>
@@ -87,7 +97,8 @@ ArtistCards.propTypes = {
   artistId: PropTypes.number,
   uri: PropTypes.string,
   onTourUntil: PropTypes.string,
-  user: PropTypes.object
+  user: PropTypes.object,
+  setUserArtists: PropTypes.func,
 };
 
 export default ArtistCards;

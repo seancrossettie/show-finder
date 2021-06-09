@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 
-const ArtistPageDisplay = ({ displayName }) => (
+const ArtistHeader = ({ displayName }) => (
   <>
     <Typography variant='h1'>{displayName}</Typography>
   </>
 );
 
-ArtistPageDisplay.propTypes = {
+ArtistHeader.propTypes = {
   displayName: PropTypes.string
 };
 
-export default ArtistPageDisplay;
+export default ArtistHeader;

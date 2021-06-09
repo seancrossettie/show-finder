@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import ArtistCards from '../Artists/ArtistCards';
 import { getArtists } from '../../helpers/data/artistData';
 
-const SearchForm = ({ user }) => {
+const SearchForm = ({ user, setUserArtists }) => {
   const [searchArtists, setSearchArtists] = useState([]);
 
   const formik = useFormik({
@@ -40,6 +40,7 @@ const SearchForm = ({ user }) => {
               onTourUntil={artist.onTourUntil}
               uri={artist.uri}
               artistId={artist.id}
+              setUserArtists={setUserArtists}
             />
             ))
             : ''
@@ -49,7 +50,8 @@ const SearchForm = ({ user }) => {
 };
 
 SearchForm.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  setUserArtists: PropTypes.func
 };
 
 export default SearchForm;
