@@ -4,9 +4,7 @@ import { Typography } from '@material-ui/core';
 import HomeButton from '../components/Navigation/HomeButton';
 import MyArtistCards from '../components/Artists/MyArtistCards';
 
-const MyArtistsPage = ({ user, userArtists, setUserArtists }) => {
-  console.warn(userArtists);
-  return (
+const MyArtistsPage = ({ user, userArtists, setUserArtists }) => (
   <>
     <HomeButton />
     <Typography>My Artists</Typography>
@@ -23,8 +21,7 @@ const MyArtistsPage = ({ user, userArtists, setUserArtists }) => {
       />
     ))}
   </>
-  );
-};
+);
 
 MyArtistsPage.propTypes = {
   user: PropTypes.object,

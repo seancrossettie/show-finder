@@ -62,6 +62,7 @@ const ArtistCards = ({
         });
         createArtist(followArtist, user)
           .then(setUserArtists);
+        history.push('/my-artists');
         break;
       default:
         console.warn('nothing selected');

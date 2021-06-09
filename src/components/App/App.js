@@ -27,8 +27,6 @@ function App() {
     });
   }, []);
 
-  console.warn(userArtists);
-
   return (
     <>
       { user
