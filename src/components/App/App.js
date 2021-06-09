@@ -7,7 +7,7 @@ import { getMyArtists } from '../../helpers/data/artistFbData';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [userArtists, setUserArtists] = useState({});
+  const [userArtists, setUserArtists] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -19,7 +19,7 @@ function App() {
           user: authed.email.split('@')[0]
         };
         setUser(userObj);
-        getMyArtists(userObj.uid)
+        getMyArtists(userObj)
           .then(setUserArtists);
       } else if (user || user === null) {
         setUser(false);
@@ -27,12 +27,15 @@ function App() {
     });
   }, []);
 
+  console.warn(userArtists);
+
   return (
     <>
       { user
         ? <Routes
-          user={user}
-          userArtists={userArtists}
+            user={user}
+            userArtists={userArtists}
+            setUserArtists={setUserArtists}
         />
         : <LoginPage />
       }
