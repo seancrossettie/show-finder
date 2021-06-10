@@ -29,14 +29,14 @@ const deleteArtist = (firebaseKey, user) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const updateData = (obj) => new Promise((resolve, reject) => {
-//   axios.patch(`${dbURL}/data/${obj.firebaseKey}.json`, obj)
-//     .then(() => {
-//       getData((resp) => resolve(resp));
-//     })
-//     .catch((error) => reject(error));
-// });
+const updateArtist = (artistObj, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/artists/${artistObj.firebaseKey}.json`, artistObj)
+    .then(() => {
+      getMyArtists(user).then((resp) => resolve(resp));
+    })
+    .catch((error) => reject(error));
+});
 
 export {
-  getMyArtists, createArtist, deleteArtist
+  getMyArtists, createArtist, deleteArtist, updateArtist
 };
