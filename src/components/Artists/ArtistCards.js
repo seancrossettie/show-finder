@@ -65,7 +65,6 @@ const ArtistCards = ({
         history.push('/my-artists');
         break;
       default:
-        console.warn('nothing selected');
     }
   };
 

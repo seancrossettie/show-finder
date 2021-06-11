@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useHistory } from 'react-router-dom';
 import { deleteArtist, updateArtist } from '../../helpers/data/artistFbData';
 
 const useStyles = makeStyles({
@@ -36,13 +37,18 @@ const MyArtistCards = ({
   favorite,
 }) => {
   const classes = useStyles();
-  const [favArtist, setFavArtist] = useState({
+  const history = useHistory();
+  const artist = {
     artistId,
     firebaseKey,
     displayName,
     uri,
-    favorite
-  });
+    favorite,
+  };
+
+  const handleHistory = (id) => {
+    history.push(`/artist-events/${id}`);
+  };
 
   const handleButtonClick = (type) => {
     switch (type) {
@@ -51,31 +57,17 @@ const MyArtistCards = ({
           .then(setUserArtists);
         break;
       case 'favorite':
-        if (favArtist.favorite === true) {
-          setFavArtist({
-            artistId,
-            firebaseKey,
-            displayName,
-            uri,
-            favorite: false
-          });
-        } else if (favArtist.favorite === false) {
-          setFavArtist({
-            artistId,
-            firebaseKey,
-            displayName,
-            uri,
-            favorite: true
-          });
+        if (artist.favorite === false) {
+          artist.favorite = true;
+          updateArtist(artist, user).then(setUserArtists);
+        } else {
+          artist.favorite = false;
+          updateArtist(artist, user).then(setUserArtists);
         }
-        updateArtist(favArtist, user).then(setUserArtists);
         break;
       default:
-        console.warn('nothing selected');
     }
   };
-
-  console.warn(favArtist);
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -91,8 +83,13 @@ const MyArtistCards = ({
         Link to SongKick Page
       </Link>
     </CardContent>
+    {favorite
+      ? <Typography>Favorited</Typography>
+      : ''
+    }
     <CardActions>
-      <Button size="small" onClick={() => handleButtonClick('delete')}>Remove Me</Button>
+      <Button size="small" onClick={() => handleButtonClick('delete')}>Unfollow</Button>
+      <Button size="small" onClick={() => handleHistory(artistId)}>Shows</Button>
       <Button size="small" onClick={() => handleButtonClick('favorite')}>Favorite</Button>
     </CardActions>
   </Card>
