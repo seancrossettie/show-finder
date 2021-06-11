@@ -7,7 +7,7 @@ import { getArtists } from '../../helpers/data/artistData';
 
 const SearchForm = ({ user, setUserArtists }) => {
   const [searchArtists, setSearchArtists] = useState([]);
-  const [noArtists, setNoArtists] = useState(true);
+  const [noArtists, setNoArtists] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -35,6 +35,7 @@ const SearchForm = ({ user, setUserArtists }) => {
             id='search-bar'
             name='artist'
             label='Search'
+            placeholder='Search for artists...'
             value={formik.values.artist}
             onChange={formik.handleChange}
           />
