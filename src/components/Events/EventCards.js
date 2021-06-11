@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../helpers/data/eventFbData';
 
 const useStyles = makeStyles({
@@ -38,6 +39,7 @@ const EventCards = ({
   setUserEvents
 }) => {
   const classes = useStyles();
+  const history = useHistory();
 
   const [saveEvent, setSaveEvent] = useState({
     displayName,
@@ -64,6 +66,7 @@ const EventCards = ({
       tickets: false,
     });
     createEvent(saveEvent, user).then(setUserEvents);
+    history.push('/my-events');
   };
 
   return (
