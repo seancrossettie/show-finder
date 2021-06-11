@@ -1,12 +1,13 @@
-import { Button, TextField } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Button, TextField, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
 import ArtistCards from '../Artists/ArtistCards';
 import { getArtists } from '../../helpers/data/artistData';
 
 const SearchForm = ({ user, setUserArtists }) => {
   const [searchArtists, setSearchArtists] = useState([]);
+  const [noArtists, setNoArtists] = useState(true);
 
   const formik = useFormik({
     initialValues: {
@@ -14,7 +15,15 @@ const SearchForm = ({ user, setUserArtists }) => {
     },
     onSubmit: (artist) => {
       getArtists(String(Object.values(artist)[0]))
-        .then(setSearchArtists);
+        .then((response) => {
+          if (response !== undefined && response.length >= 1) {
+            setNoArtists(false);
+            setSearchArtists(response);
+          } else {
+            setSearchArtists([]);
+            setNoArtists(true);
+          }
+        });
     },
   });
 
@@ -31,6 +40,10 @@ const SearchForm = ({ user, setUserArtists }) => {
           />
           <Button type='submit'>Search</Button>
         </form>
+          { noArtists
+            ? <Typography>No artists match this search</Typography>
+            : ''
+          }
           { searchArtists
             ? searchArtists.map((artist) => (
             <ArtistCards
