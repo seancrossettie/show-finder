@@ -8,14 +8,16 @@ import MyEventsPage from '../views/MyEventsPage';
 import NotFound from '../views/NotFound';
 import SearchPage from '../views/SearchPage';
 
-function Routes({ user, userArtists, setUserArtists }) {
+function Routes({
+  user, userArtists, setUserArtists, userEvents, setUserEvents
+}) {
   return (
     <Switch>
       <Route exact path='/' component={HomePage} />
       <Route exact path='/my-artists' component={() => <MyArtistsPage user={user} userArtists={userArtists} setUserArtists={setUserArtists} />} />
-      <Route exact path='/my-events' component={MyEventsPage} />
+      <Route exact path='/my-events' component={() => <MyEventsPage user={user} userEvents={userEvents} setUserEvents={setUserEvents} />} />
       <Route exact path='/search' component={() => <SearchPage user={user} setUserArtists={setUserArtists} />} />
-      <Route path='/artist-events/:id' component={() => <ArtistPage user={user} />} />
+      <Route path='/artist-events/:id' component={() => <ArtistPage user={user} userEvents={userEvents} setUserEvents={setUserEvents} />} />
       <Route exact path='*' component={NotFound} />
     </Switch>
   );
@@ -24,7 +26,9 @@ function Routes({ user, userArtists, setUserArtists }) {
 Routes.propTypes = {
   user: PropTypes.object,
   userArtists: PropTypes.array,
-  setUserArtists: PropTypes.func
+  setUserArtists: PropTypes.func,
+  userEvents: PropTypes.array,
+  setUserEvents: PropTypes.func,
 };
 
 export default Routes;
