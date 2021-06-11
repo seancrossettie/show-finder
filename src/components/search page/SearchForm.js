@@ -41,7 +41,7 @@ const SearchForm = ({ user, setUserArtists }) => {
           <Button type='submit'>Search</Button>
         </form>
           { noArtists
-            ? <Typography>No artists match this search</Typography>
+            ? <Typography>Sorry, we found no artists for this search</Typography>
             : ''
           }
           { searchArtists
