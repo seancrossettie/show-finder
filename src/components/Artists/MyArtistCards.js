@@ -7,7 +7,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { deleteArtist } from '../../helpers/data/artistFbData';
+import { useHistory } from 'react-router-dom';
+import { deleteArtist, updateArtist } from '../../helpers/data/artistFbData';
 
 const useStyles = makeStyles({
   root: {
@@ -29,15 +30,25 @@ const useStyles = makeStyles({
 const MyArtistCards = ({
   user,
   setUserArtists,
-  // artistId,
+  artistId,
   firebaseKey,
   displayName,
   uri,
   favorite,
 }) => {
   const classes = useStyles();
+  const history = useHistory();
+  const artist = {
+    artistId,
+    firebaseKey,
+    displayName,
+    uri,
+    favorite,
+  };
 
-  // console.warn({ artistId });
+  const handleHistory = (id) => {
+    history.push(`/artist-events/${id}`);
+  };
 
   const handleButtonClick = (type) => {
     switch (type) {
@@ -45,10 +56,19 @@ const MyArtistCards = ({
         deleteArtist(firebaseKey, user)
           .then(setUserArtists);
         break;
+      case 'favorite':
+        if (artist.favorite === false) {
+          artist.favorite = true;
+          updateArtist(artist, user).then(setUserArtists);
+        } else {
+          artist.favorite = false;
+          updateArtist(artist, user).then(setUserArtists);
+        }
+        break;
       default:
-        console.warn('nothing selected');
     }
   };
+
   return (
     <Card className={classes.root} variant="outlined">
     <CardContent>
@@ -62,17 +82,15 @@ const MyArtistCards = ({
       <Link href={uri} target='_blank'>
         Link to SongKick Page
       </Link>
-       { favorite
-         ? <Typography variant="body2" component="p">
-          Favorite Artist
-        </Typography>
-         : <Typography variant="body2" component="p">
-          Not Favorite Artist
-       </Typography>
-        }
     </CardContent>
+    {favorite
+      ? <Typography>Favorited</Typography>
+      : ''
+    }
     <CardActions>
-      <Button size="small" onClick={() => handleButtonClick('delete')}>Remove Me</Button>
+      <Button size="small" onClick={() => handleButtonClick('delete')}>Unfollow</Button>
+      <Button size="small" onClick={() => handleHistory(artistId)}>Shows</Button>
+      <Button size="small" onClick={() => handleButtonClick('favorite')}>Favorite</Button>
     </CardActions>
   </Card>
 
