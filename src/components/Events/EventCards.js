@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import PropTypes from 'prop-types';
@@ -6,6 +6,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import { Button } from '@material-ui/core';
+import { createEvent } from '../../helpers/data/eventFbData';
 
 const useStyles = makeStyles({
   root: {
@@ -31,9 +33,38 @@ const EventCards = ({
   type,
   venue,
   uri,
-  eventId
+  eventId,
+  user,
+  setUserEvents
 }) => {
   const classes = useStyles();
+
+  const [saveEvent, setSaveEvent] = useState({
+    displayName,
+    eventId,
+    uri,
+    uid: user.uid,
+    date,
+    type,
+    location,
+    venue,
+    tickets: false
+  });
+
+  const createShow = () => {
+    setSaveEvent({
+      displayName,
+      eventId,
+      uri,
+      uid: user.uid,
+      date,
+      type,
+      location,
+      venue,
+      tickets: false,
+    });
+    createEvent(saveEvent, user).then(setUserEvents);
+  };
 
   return (
     <Card className={classes.root} id={eventId}>
@@ -60,6 +91,7 @@ const EventCards = ({
         <Link href={uri} target='_blank'>
           Link to SongKick Event
         </Link>
+        <Button onClick={() => createShow()} >Save this show</Button>
       </CardActions>
     </Card>
   );
@@ -72,7 +104,9 @@ EventCards.propTypes = {
   type: PropTypes.string,
   venue: PropTypes.string,
   uri: PropTypes.string,
-  eventId: PropTypes.number
+  eventId: PropTypes.number,
+  user: PropTypes.object,
+  setUserEvents: PropTypes.func
 };
 
 export default EventCards;

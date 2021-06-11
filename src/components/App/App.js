@@ -4,10 +4,12 @@ import 'firebase/auth';
 import Routes from '../../helpers/Routes';
 import LoginPage from '../../views/LoginPage';
 import { getMyArtists } from '../../helpers/data/artistFbData';
+import { getMyEvents } from '../../helpers/data/eventFbData';
 
 function App() {
   const [user, setUser] = useState(null);
   const [userArtists, setUserArtists] = useState([]);
+  const [userEvents, setUserEvents] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -21,6 +23,8 @@ function App() {
         setUser(userObj);
         getMyArtists(userObj)
           .then(setUserArtists);
+        getMyEvents(userObj)
+          .then(setUserEvents);
       } else if (user || user === null) {
         setUser(false);
       }
@@ -34,6 +38,8 @@ function App() {
             user={user}
             userArtists={userArtists}
             setUserArtists={setUserArtists}
+            userEvents={userEvents}
+            setUserEvents={setUserEvents}
         />
         : <LoginPage />
       }
