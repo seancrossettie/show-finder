@@ -1,12 +1,10 @@
-import React from 'react';
+import {
+  Button, Card, CardActions, CardContent, Link
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import PropTypes from 'prop-types';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import { Button } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { deleteEvent, updateEvent } from '../../helpers/data/eventFbData';
 
 const MyEventCards = ({
@@ -20,7 +18,8 @@ const MyEventCards = ({
   user,
   firebaseKey,
   tickets,
-  setUserEvents
+  setUserEvents,
+  artistId
 }) => {
   const useStyles = makeStyles({
     root: {
@@ -68,6 +67,9 @@ const MyEventCards = ({
           updateEvent(updatedEvent, user).then(setUserEvents);
         }
         break;
+      case 'details':
+        console.warn(artistId);
+        break;
       default:
     }
   };
@@ -98,6 +100,7 @@ const MyEventCards = ({
         Link to SongKick Event
       </Link>
       <Button onClick={() => handleButtonClick('delete')}>Remove</Button>
+      <Button onClick={() => handleButtonClick('details')}>Detail</Button>
       { tickets
         ? <Button onClick={() => handleButtonClick('tickets')}>Tickets Purchased</Button>
         : <Button onClick={() => handleButtonClick('tickets')}>Tickets Not Purchased</Button>
@@ -118,7 +121,8 @@ MyEventCards.propTypes = {
   user: PropTypes.object,
   setUserEvents: PropTypes.func,
   firebaseKey: PropTypes.string,
-  tickets: PropTypes.bool
+  tickets: PropTypes.bool,
+  artistId: PropTypes.string
 };
 
 export default MyEventCards;
