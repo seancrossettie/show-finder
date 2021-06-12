@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-import PropTypes from 'prop-types';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { Button } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../helpers/data/eventFbData';
 
@@ -50,7 +50,7 @@ const EventCards = ({
     type,
     location,
     venue,
-    tickets: false
+    tickets: false,
   });
 
   const createShow = () => {
@@ -109,7 +109,7 @@ EventCards.propTypes = {
   uri: PropTypes.string,
   eventId: PropTypes.number,
   user: PropTypes.object,
-  setUserEvents: PropTypes.func
+  setUserEvents: PropTypes.func,
 };
 
 export default EventCards;
