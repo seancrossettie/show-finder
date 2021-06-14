@@ -7,7 +7,7 @@ const SearchButton = () => {
   const history = useHistory();
   return (
     <>
-      <IconButton onClick={() => history.push('/search')}>
+      <IconButton color='primary' onClick={() => history.push('/search')}>
         <SearchIcon />
       </IconButton>
     </>

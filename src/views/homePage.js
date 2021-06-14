@@ -13,10 +13,10 @@ const HomePage = () => {
 
   return (
     <>
-      <Button onClick={() => handleHistory('/my-artists')}>My artists</Button>
-      <Button onClick={() => handleHistory('/my-events')}>My Events</Button>
+      <Button color='primary' onClick={() => handleHistory('/my-artists')}>My artists</Button>
+      <Button color='primary' onClick={() => handleHistory('/my-events')}>My Events</Button>
       <SearchButton />
-      <Button onClick={signOutUser}>Sign Out</Button>
+      <Button color='primary' onClick={signOutUser}>Sign Out</Button>
     </>
   );
 };

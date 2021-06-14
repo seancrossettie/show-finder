@@ -7,7 +7,7 @@ import MyEventCards from '../components/Events/MyEventCards';
 const MyEventsPage = ({ user, userEvents, setUserEvents }) => (
     <>
       <HomeButton />
-      <Typography>My Events</Typography>
+      <Typography variant='h1' color='primary'>My Events</Typography>
       { userEvents.map((event, i) => (
         <MyEventCards
           key={i}

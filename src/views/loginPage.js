@@ -4,8 +4,8 @@ import { signInUser } from '../helpers/auth';
 
 const LoginPage = () => (
   <>
-    <Typography>Login Page</Typography>
-    <Button onClick={signInUser}>Sign In</Button>
+    <Button onClick={signInUser} color='primary'>Sign In</Button>
+    <Typography color='primary'>Login Page</Typography>
   </>
 );
 

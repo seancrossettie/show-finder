@@ -1,21 +1,23 @@
-import React from 'react';
+import { ThemeProvider } from '@material-ui/core';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from 'firebase';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import './styles/index.scss';
 import App from './components/App/App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import firebaseConfig from './helpers/apiKeys';
+import reportWebVitals from './reportWebVitals';
+import './styles/index.scss';
+import theme from './styles/muiTheme';
 
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.Fragment>
     <Router>
-      <CssBaseline />
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </Router>
   </React.Fragment>,
   document.getElementById('root')
