@@ -7,7 +7,7 @@ const HomeButton = () => {
   const history = useHistory();
   return (
     <>
-      <IconButton onClick={() => history.push('/')}>
+      <IconButton color='primary' onClick={() => history.push('/')}>
         <ArrowBackIcon />
       </IconButton>
     </>

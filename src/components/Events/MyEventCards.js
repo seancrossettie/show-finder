@@ -23,7 +23,7 @@ const MyEventCards = ({
 }) => {
   const useStyles = makeStyles({
     root: {
-      minWidth: 275,
+      width: '25%',
     },
     bullet: {
       display: 'inline-block',

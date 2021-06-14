@@ -12,7 +12,7 @@ import { createEvent } from '../../helpers/data/eventFbData';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    width: '25%',
   },
   bullet: {
     display: 'inline-block',

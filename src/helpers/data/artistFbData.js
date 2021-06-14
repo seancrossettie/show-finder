@@ -9,6 +9,12 @@ const getMyArtists = (user) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSetArtists = (user) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/artists.json?orderBy="uid"&equalTo="${user.uid}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
 const createArtist = (obj, user) => new Promise((resolve, reject) => {
   axios.post(`${dbURL}/artists.json`, obj)
     .then((response) => {
@@ -38,5 +44,5 @@ const updateArtist = (artistObj, user) => new Promise((resolve, reject) => {
 });
 
 export {
-  getMyArtists, createArtist, deleteArtist, updateArtist
+  getMyArtists, getSetArtists, createArtist, deleteArtist, updateArtist
 };

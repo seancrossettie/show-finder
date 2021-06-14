@@ -7,7 +7,7 @@ import MyArtistCards from '../components/Artists/MyArtistCards';
 const MyArtistsPage = ({ user, userArtists, setUserArtists }) => (
   <>
     <HomeButton />
-    <Typography>My Artists</Typography>
+    <Typography variant='h1' color='primary'>My Artists</Typography>
     { userArtists.map((artist, i) => (
       <MyArtistCards
         key={i}

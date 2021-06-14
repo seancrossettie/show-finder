@@ -7,7 +7,6 @@ import SearchButton from '../components/Navigation/SearchButton';
 import getArtistEvents from '../helpers/data/eventData';
 import { getSingleArtist } from '../helpers/data/artistData';
 import EventCards from '../components/Events/EventCards';
-import ArtistHeader from '../components/Artists/ArtistPageDisplay';
 
 const ArtistPage = ({ user, setUserEvents }) => {
   const { id } = useParams();
@@ -23,7 +22,7 @@ const ArtistPage = ({ user, setUserEvents }) => {
     <>
       <HomeButton />
       <SearchButton />
-      <ArtistHeader displayName={pageArtist.displayName} />
+      <Typography variant='h1' color='primary'>{pageArtist.displayName}</Typography>
       { events
         ? events.map((event, i) => (
         <EventCards
