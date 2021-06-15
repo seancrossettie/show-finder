@@ -67,7 +67,7 @@ const SearchForm = ({ user, setUserArtists }) => {
         </form>
       </Grid>
       { noArtists
-        ? <Typography color='primary'>Sorry, we found no artists for this search</Typography>
+        ? <Typography color='primary' variant='h3'>Sorry, no artists match this search</Typography>
         : ''
       }
       { searchArtists

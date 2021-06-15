@@ -10,7 +10,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [userArtists, setUserArtists] = useState([]);
   const [userEvents, setUserEvents] = useState([]);
-  // const [setArtists, setSetArtists] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -23,19 +22,30 @@ function App() {
         };
         setUser(userObj);
         getMyArtists(userObj)
-          .then(setUserArtists);
+          .then((allArtists) => {
+            const artistArray = new Set();
+            const filteredArtists = allArtists.filter((el) => {
+              const duplicate = artistArray.has(el.displayName);
+              artistArray.add(el.displayName);
+              return !duplicate;
+            });
+            setUserArtists(filteredArtists);
+          });
         getMyEvents(userObj)
-          .then(setUserEvents);
-        // getMyArtists(userObj).then(setSetArtists);
+          .then((allEvents) => {
+            const eventArray = new Set();
+            const filteredArtists = allEvents.filter((el) => {
+              const duplicate = eventArray.has(el.displayName);
+              eventArray.add(el.displayName);
+              return !duplicate;
+            });
+            setUserArtists(filteredArtists);
+          });
       } else if (user || user === null) {
         setUser(false);
       }
     });
   }, []);
-
-  // Creating a new set of artist names
-  // const artistIdSet = [...new Set(setArtists.map((artist) => artist.displayName))];
-  // console.warn(artistIdSet);
 
   return (
     <>
