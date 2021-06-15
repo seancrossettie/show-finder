@@ -12,15 +12,14 @@ import { createEvent } from '../../helpers/data/eventFbData';
 
 const useStyles = makeStyles({
   root: {
-    width: '25%',
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    minWidth: 275,
+    backgroundColor: '#000000',
+    border: '10%',
+    borderColor: '#EEE5E9',
+    margin: 10
   },
   title: {
-    fontSize: 14,
+    fontSize: 28,
   },
   pos: {
     marginBottom: 12,
@@ -70,22 +69,22 @@ const EventCards = ({
   };
 
   return (
-    <Card className={classes.root} id={eventId}>
+    <Card className={classes.root} variant='outlined'>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} color='primary' gutterBottom>
           {displayName}
         </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" color='primary'>
           {date}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography className={classes.pos} color='primary'>
           {location}
         </Typography>
-        <Typography variant="body2" component="p">
+        <Typography variant="body2" component="p" color='primary'>
           {type}
           <br />
         </Typography>
-        <Typography variant="body2" component="p">
+        <Typography variant="body2" component='p' color='primary'>
           {venue}
           <br />
         </Typography>
@@ -94,7 +93,7 @@ const EventCards = ({
         <Link href={uri} target='_blank'>
           Link to SongKick Event
         </Link>
-        <Button onClick={() => createShow()} >Save this show</Button>
+        <Button onClick={() => createShow()} color="primary">Save this show</Button>
       </CardActions>
     </Card>
   );

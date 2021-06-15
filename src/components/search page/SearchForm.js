@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
-import { Button, TextField, Typography } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import {
+  Button, Grid, makeStyles, TextField, Typography
+} from '@material-ui/core';
 import { useFormik } from 'formik';
-import ArtistCards from '../Artists/ArtistCards';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { getArtists } from '../../helpers/data/artistData';
+import ArtistCards from '../Artists/ArtistCards';
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: '90%',
+    marginRight: 10,
+    marginLeft: 10,
+  },
+  input: {
+    color: '#EEE5E9',
+  }
+});
 
 const SearchForm = ({ user, setUserArtists }) => {
+  const classes = useStyles();
   const [searchArtists, setSearchArtists] = useState([]);
   const [noArtists, setNoArtists] = useState(false);
 
@@ -28,38 +42,49 @@ const SearchForm = ({ user, setUserArtists }) => {
   });
 
   return (
-      <div>
+    <div>
+      <Grid container direction='column'>
         <form onSubmit={formik.handleSubmit}>
-          <TextField
-            fullWidth
-            id='search-bar'
-            name='artist'
-            label='Search'
-            placeholder='Search for artists...'
-            value={formik.values.artist}
-            onChange={formik.handleChange}
-          />
-          <Button type='submit'>Search</Button>
-        </form>
-          { noArtists
-            ? <Typography>Sorry, we found no artists for this search</Typography>
-            : ''
-          }
-          { searchArtists
-            ? searchArtists.map((artist) => (
-            <ArtistCards
-              user={user}
-              key={artist.id}
-              displayName={artist.displayName}
-              onTourUntil={artist.onTourUntil}
-              uri={artist.uri}
-              artistId={artist.id}
-              setUserArtists={setUserArtists}
+          <Grid item xs={12}>
+            <TextField
+              className={classes.root}
+              variant='filled'
+              label='Type an artists name here...'
+              name='artist'
+              value={formik.values.artist}
+              InputProps={{
+                className: classes.input
+              }}
+              InputLabelProps={{
+                className: classes.input
+              }}
+              onChange={formik.handleChange}
             />
-            ))
-            : ''
-          }
-      </div>
+          </Grid>
+          <Grid>
+            <Button type='submit' color='primary'>Search</Button>
+          </Grid>
+        </form>
+      </Grid>
+      { noArtists
+        ? <Typography color='primary'>Sorry, we found no artists for this search</Typography>
+        : ''
+      }
+      { searchArtists
+        ? searchArtists.map((artist) => (
+        <ArtistCards
+          user={user}
+          key={artist.id}
+          displayName={artist.displayName}
+          onTourUntil={artist.onTourUntil}
+          uri={artist.uri}
+          artistId={artist.id}
+          setUserArtists={setUserArtists}
+        />
+        ))
+        : ''
+      }
+    </div>
   );
 };
 

@@ -23,15 +23,14 @@ const MyEventCards = ({
 }) => {
   const useStyles = makeStyles({
     root: {
-      width: '25%',
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
+      minWidth: 275,
+      backgroundColor: '#000000',
+      border: '10%',
+      borderColor: '#EEE5E9',
+      margin: 10
     },
     title: {
-      fontSize: 14,
+      fontSize: 28,
     },
     pos: {
       marginBottom: 12,
@@ -75,38 +74,33 @@ const MyEventCards = ({
   };
 
   return (
-    <Card className={classes.root} id={eventId}>
-    <CardContent>
-      <Typography className={classes.title} color="textSecondary" gutterBottom>
-        {displayName}
-      </Typography>
-      <Typography variant="h5" component="h2">
-        {date}
-      </Typography>
-      <Typography className={classes.pos} color="textSecondary">
-        {location}
-      </Typography>
-      <Typography variant="body2" component="p">
-        {type}
-        <br />
-      </Typography>
-      <Typography variant="body2" component="p">
-        {venue}
-        <br />
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Link href={uri} target='_blank'>
-        Link to SongKick Event
-      </Link>
-      <Button onClick={() => handleButtonClick('delete')}>Remove</Button>
-      <Button onClick={() => handleButtonClick('details')}>Detail</Button>
-      { tickets
-        ? <Button onClick={() => handleButtonClick('tickets')}>Tickets Purchased</Button>
-        : <Button onClick={() => handleButtonClick('tickets')}>Tickets Not Purchased</Button>
-      }
-    </CardActions>
-  </Card>
+    <Card className={classes.root} variant='outlined'>
+      <CardContent>
+        <Typography className={classes.title} color="primary" gutterBottom>
+          {displayName}
+        </Typography>
+        <Typography variant="h5" component="h2" color="primary">
+          {date}
+        </Typography>
+        <Typography className={classes.pos} color="primary">
+          {location}
+        </Typography>
+        <Typography variant="body2" component="p" color="primary">
+          {type}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Link href={uri} target='_blank'>
+          Link to SongKick Event
+        </Link>
+        <Button onClick={() => handleButtonClick('delete')} color="primary">Remove</Button>
+        <Button onClick={() => handleButtonClick('details')} color="primary">Details</Button>
+        { tickets
+          ? <Button onClick={() => handleButtonClick('tickets')} color="primary">Tickets Purchased</Button>
+          : <Button onClick={() => handleButtonClick('tickets')} color="primary">Tickets Not Purchased</Button>
+        }
+      </CardActions>
+    </Card>
   );
 };
 

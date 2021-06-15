@@ -13,14 +13,13 @@ import { createArtist } from '../../helpers/data/artistFbData';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    backgroundColor: '#000000',
+    border: '10%',
+    borderColor: '#EEE5E9',
+    margin: 10
   },
   title: {
-    fontSize: 14,
+    fontSize: 28,
   },
   pos: {
     marginBottom: 12,
@@ -72,10 +71,10 @@ const ArtistCards = ({
     <>
       <Card className={classes.root} variant="outlined">
         <CardContent>
-          <Typography variant="h5" component="h2">
+          <Typography className={classes.title} variant="h5" component="h2" color='primary'>
             {displayName}
           </Typography>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
+          <Typography color='primary' gutterBottom>
              On Tour Until: {onTourUntil}
           </Typography>
           <Link href={uri} target='_blank'>
@@ -83,8 +82,8 @@ const ArtistCards = ({
           </Link>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => handleHistory(artistId)}>Events</Button>
-          <Button size="small" onClick={() => handleButtonClick('create')}>Follow this artist</Button>
+          <Button size="small" onClick={() => handleHistory(artistId)} color='primary'>Events</Button>
+          <Button size="small" onClick={() => handleButtonClick('create')} color='primary'>Follow this artist</Button>
         </CardActions>
       </Card>
     </>

@@ -82,7 +82,6 @@ const MyArtistCards = ({
           </Grid>
           <Grid item xs={1}>
             { favorite
-
               ? <IconButton onClick={() => handleButtonClick('favorite')}>
                   <StarIcon color='secondary' />
                 </IconButton>
