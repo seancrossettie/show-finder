@@ -34,12 +34,12 @@ function App() {
         getMyEvents(userObj)
           .then((allEvents) => {
             const eventArray = new Set();
-            const filteredArtists = allEvents.filter((el) => {
+            const filteredEvents = allEvents.filter((el) => {
               const duplicate = eventArray.has(el.displayName);
               eventArray.add(el.displayName);
               return !duplicate;
             });
-            setUserArtists(filteredArtists);
+            setUserEvents(filteredEvents);
           });
       } else if (user || user === null) {
         setUser(false);

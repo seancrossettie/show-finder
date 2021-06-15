@@ -93,7 +93,7 @@ const EventCards = ({
         <Link href={uri} target='_blank'>
           Link to SongKick Event
         </Link>
-        <Button onClick={() => createShow()} color="primary">Save this show</Button>
+        <Button color='primary' variant='outlined' onClick={() => createShow()}>Save this show</Button>
       </CardActions>
     </Card>
   );

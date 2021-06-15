@@ -1,16 +1,12 @@
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Link from '@material-ui/core/Link';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import {
+  Button, Card, CardActions, CardContent, Grid, IconButton, Typography
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import PropTypes from 'prop-types';
 import React from 'react';
-import StarIcon from '@material-ui/icons/Star';
 import { useHistory } from 'react-router-dom';
-import { Grid, IconButton } from '@material-ui/core';
 import { deleteArtist, updateArtist } from '../../helpers/data/artistFbData';
 
 const useStyles = makeStyles({
@@ -75,12 +71,12 @@ const MyArtistCards = ({
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Grid container>
-          <Grid item xs={11}>
+          <Grid item xs={10} sm={11}>
             <Typography className={classes.title} color="primary" gutterBottom>
               {displayName}
             </Typography>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2} sm={1}>
             { favorite
               ? <IconButton onClick={() => handleButtonClick('favorite')}>
                   <StarIcon color='secondary' />
@@ -91,13 +87,11 @@ const MyArtistCards = ({
             }
           </Grid>
         </Grid>
-        <Link href={uri} color="primary" target='_blank'>
-          Link to SongKick Page
-        </Link>
       </CardContent>
     <CardActions>
-      <Button size="small" color="primary" onClick={() => handleButtonClick('delete')}>Unfollow</Button>
-      <Button size="small" color="primary" onClick={() => handleHistory(artistId)}>Upcoming Events</Button>
+      <Button color='primary' variant='outlined' onClick={() => handleButtonClick('delete')}>Unfollow</Button>
+      <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
+      <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Upcoming Events</Button>
     </CardActions>
   </Card>
   );

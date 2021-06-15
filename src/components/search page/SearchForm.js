@@ -1,6 +1,7 @@
 import {
-  Button, Grid, makeStyles, TextField, Typography
+  Grid, IconButton, makeStyles, TextField, Typography
 } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 import { useFormik } from 'formik';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -9,9 +10,6 @@ import ArtistCards from '../Artists/ArtistCards';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: '90%',
-    marginRight: 10,
-    marginLeft: 10,
   },
   input: {
     color: '#EEE5E9',
@@ -45,29 +43,37 @@ const SearchForm = ({ user, setUserArtists }) => {
     <div>
       <Grid container direction='column'>
         <form onSubmit={formik.handleSubmit}>
-          <Grid item xs={12}>
-            <TextField
-              className={classes.root}
-              variant='filled'
-              label='Type an artists name here...'
-              name='artist'
-              value={formik.values.artist}
-              InputProps={{
-                className: classes.input
-              }}
-              InputLabelProps={{
-                className: classes.input
-              }}
-              onChange={formik.handleChange}
-            />
-          </Grid>
-          <Grid>
-            <Button type='submit' color='primary'>Search</Button>
+          <Grid container direction='row' alignItems='center'>
+            <Grid item xs={12} sm={11}>
+              <TextField
+                autoComplete='off'
+                className={classes.root}
+                fullWidth
+                variant='filled'
+                margin='normal'
+                label='Type an artists name here...'
+                name='artist'
+                value={formik.values.artist}
+                InputProps={{
+                  className: classes.input
+                }}
+                InputLabelProps={{
+                  className: classes.input
+                }}
+                size='medium'
+                onChange={formik.handleChange}
+              />
+            </Grid>
+            <Grid item sm={1}>
+              <IconButton type='submit'>
+                <SearchIcon color='primary' />
+              </IconButton>
+            </Grid>
           </Grid>
         </form>
       </Grid>
       { noArtists
-        ? <Typography color='primary' variant='h3'>Sorry, no artists match this search</Typography>
+        ? <Typography color='primary' variant='h3'>Sorry, no Artists match this search.</Typography>
         : ''
       }
       { searchArtists
