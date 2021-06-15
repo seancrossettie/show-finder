@@ -1,8 +1,7 @@
 import {
-  Button, Card, CardActions, CardContent, Link
+  Button, Card, CardActions, CardContent, Typography
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { deleteEvent, updateEvent } from '../../helpers/data/eventFbData';
@@ -90,14 +89,12 @@ const MyEventCards = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href={uri} target='_blank'>
-          Link to SongKick Event
-        </Link>
-        <Button onClick={() => handleButtonClick('delete')} color="primary">Remove</Button>
-        <Button onClick={() => handleButtonClick('details')} color="primary">Details</Button>
+        <Button color='primary' variant='outlined' onClick={() => handleButtonClick('delete')}>Remove</Button>
+        <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
+        <Button color='primary' variant='outlined' onClick={() => handleButtonClick('details')}>Details</Button>
         { tickets
-          ? <Button onClick={() => handleButtonClick('tickets')} color="primary">Tickets Purchased</Button>
-          : <Button onClick={() => handleButtonClick('tickets')} color="primary">Tickets Not Purchased</Button>
+          ? <Button color='primary' variant='outlined' onClick={() => handleButtonClick('tickets')}>Tickets Purchased</Button>
+          : <Button color='primary' variant='outlined' onClick={() => handleButtonClick('tickets')}>Tickets Not Purchased</Button>
         }
       </CardActions>
     </Card>

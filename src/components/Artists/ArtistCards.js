@@ -82,8 +82,8 @@ const ArtistCards = ({
           </Link>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => handleHistory(artistId)} color='primary'>Events</Button>
-          <Button size="small" onClick={() => handleButtonClick('create')} color='primary'>Follow this artist</Button>
+          <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Events</Button>
+          <Button color='primary' variant='outlined' onClick={() => handleButtonClick('create')}>Follow this artist</Button>
         </CardActions>
       </Card>
     </>
