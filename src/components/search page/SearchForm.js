@@ -31,7 +31,6 @@ const SearchForm = ({ user, setUserArtists }) => {
           if (response !== undefined && response.length >= 1) {
             setNoArtists(false);
             setSearchArtists(response);
-            console.warn(response);
           } else {
             setSearchArtists([]);
             setNoArtists(true);

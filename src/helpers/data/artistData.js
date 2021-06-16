@@ -10,24 +10,6 @@ const getArtists = (artist) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const getMyArtistsIds = (user) => new Promise((resolve, reject) => {
-//   getMyArtists(user).then((artistArray) => {
-//     const myIdArray = artistArray.map((artist) => artist.artistId);
-//     resolve(myIdArray);
-//     console.warn(myIdArray);
-//   }).catch((error) => reject(error));
-// });
-
-// const getSearchArtistId = (artist) => new Promise((resolve, reject) => {
-//   getArtists(artist).then((artistArray) => {
-//     const skIdArray = artistArray.map((a) => a.id);
-//     resolve(skIdArray);
-//     console.warn(skIdArray);
-//   }).catch((error) => reject(error));
-// });
-
-// Promise.all comparing the artistId's of all my save artists and all searched artists
-
 const compareArtists = (user, artist) => new Promise((resolve, reject) => {
   Promise.all([getArtists(artist), getMyArtists(user)])
     .then(([searchArtistArr, myFollowed]) => {
