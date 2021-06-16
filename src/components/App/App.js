@@ -20,27 +20,14 @@ function App() {
           uid: authed.uid,
           user: authed.email.split('@')[0]
         };
+
         setUser(userObj);
+
         getMyArtists(userObj)
-          .then((allArtists) => {
-            const artistArray = new Set();
-            const filteredArtists = allArtists.filter((el) => {
-              const duplicate = artistArray.has(el.displayName);
-              artistArray.add(el.displayName);
-              return !duplicate;
-            });
-            setUserArtists(filteredArtists);
-          });
+          .then(setUserArtists);
+
         getMyEvents(userObj)
-          .then((allEvents) => {
-            const eventArray = new Set();
-            const filteredEvents = allEvents.filter((el) => {
-              const duplicate = eventArray.has(el.displayName);
-              eventArray.add(el.displayName);
-              return !duplicate;
-            });
-            setUserEvents(filteredEvents);
-          });
+          .then(setUserEvents);
       } else if (user || user === null) {
         setUser(false);
       }

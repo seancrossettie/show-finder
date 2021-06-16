@@ -2,6 +2,7 @@ import {
   Button, Card, CardActions, CardContent, Typography
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { deleteEvent, updateEvent } from '../../helpers/data/eventFbData';
@@ -50,6 +51,9 @@ const MyEventCards = ({
     tickets,
   };
 
+  const d = new Date(date);
+  const newD = moment(d).format('MMMM d, YYYY');
+
   const handleButtonClick = (t) => {
     switch (t) {
       case 'delete':
@@ -78,14 +82,14 @@ const MyEventCards = ({
         <Typography className={classes.title} color="primary" gutterBottom>
           {displayName}
         </Typography>
+        <Typography variant="body2" component="p" color="primary">
+          {type}
+        </Typography>
         <Typography variant="h5" component="h2" color="primary">
-          {date}
+          {newD}
         </Typography>
         <Typography className={classes.pos} color="primary">
           {location}
-        </Typography>
-        <Typography variant="body2" component="p" color="primary">
-          {type}
         </Typography>
       </CardContent>
       <CardActions>

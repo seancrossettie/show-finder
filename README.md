@@ -14,6 +14,7 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
 - Material UI
 - Songkick API
 - Formik
+- Moment.js
 ## User Story
 - Google Authentication
 - User can search for new artists and find their upcoming events

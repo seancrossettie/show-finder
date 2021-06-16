@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getMyArtists } from './artistFbData';
 import songKickApi from './songKickApi';
 
 const apiKey = songKickApi;
@@ -9,10 +10,23 @@ const getArtists = (artist) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const compareArtists = (user, artist) => new Promise((resolve, reject) => {
+  Promise.all([getArtists(artist), getMyArtists(user)])
+    .then(([searchArtistArr, myFollowed]) => {
+      resolve(searchArtistArr.map((artistObj) => ({
+        ...artistObj,
+        isFollowed: Boolean(myFollowed.find((followed) => followed.artistId === artistObj.id))
+      })));
+    })
+    .catch((error) => reject(error));
+});
+
 const getSingleArtist = (artistId) => new Promise((resolve, reject) => {
   axios.get(`https://api.songkick.com/api/3.0/artists/${artistId}.json?apikey=${apiKey}`)
     .then((response) => resolve(response.data.resultsPage.results.artist))
     .catch((error) => reject(error));
 });
 
-export { getArtists, getSingleArtist };
+export {
+  getArtists, compareArtists, getSingleArtist
+};
