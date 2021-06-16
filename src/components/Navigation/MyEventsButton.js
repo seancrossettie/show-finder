@@ -6,7 +6,7 @@ const MyEventsButton = () => {
   const history = useHistory();
   return (
     <>
-      <Button color='primary' onClick={() => history.push('/my-events')}>My Events</Button>
+      <Button color='primary' variant='outlined' onClick={() => history.push('/my-events')}>My Events</Button>
     </>
   );
 };

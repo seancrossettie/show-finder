@@ -6,7 +6,7 @@ const MyArtistsButton = () => {
   const history = useHistory();
   return (
     <>
-      <Button color='primary' onClick={() => history.push('/my-artists')}>My Artists</Button>
+      <Button color='primary' variant='outlined' onClick={() => history.push('/my-artists')}>My Artists</Button>
     </>
   );
 };
