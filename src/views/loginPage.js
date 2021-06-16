@@ -1,12 +1,16 @@
 import React from 'react';
-import { Button, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import { signInUser } from '../helpers/auth';
 
 const LoginPage = () => (
-  <>
-    <Button onClick={signInUser} color='primary'>Sign In</Button>
-    <Typography color='primary'>Login Page</Typography>
-  </>
+    <Grid container alignItems='center' justify='center' direction='column' spacing={5}>
+      <Grid item>
+        <Typography variant='h1' color='primary'>Login</Typography>
+      </Grid>
+      <Grid item>
+        <Button onClick={signInUser} color='primary' variant='outlined'>Sign In</Button>
+      </Grid>
+    </Grid>
 );
 
 export default LoginPage;

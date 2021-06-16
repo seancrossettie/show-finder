@@ -9,7 +9,6 @@ import { signOutUser } from '../helpers/auth';
 
 const useStyles = makeStyles({
   root: {
-    marginTop: 100,
   },
   title: {
   }

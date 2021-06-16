@@ -33,6 +33,7 @@ const ArtistCards = ({
   onTourUntil,
   user,
   setUserArtists,
+  isFollowed
 }) => {
   const classes = useStyles();
   const history = useHistory();
@@ -83,7 +84,10 @@ const ArtistCards = ({
         </CardContent>
         <CardActions>
           <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Events</Button>
-          <Button color='primary' variant='outlined' onClick={() => handleButtonClick('create')}>Follow this artist</Button>
+          { isFollowed
+            ? <Typography color='primary'>Following this artist</Typography>
+            : <Button color='primary' variant='outlined' onClick={() => handleButtonClick('create')}>Follow this artist</Button>
+          }
         </CardActions>
       </Card>
     </>
@@ -97,6 +101,7 @@ ArtistCards.propTypes = {
   onTourUntil: PropTypes.string,
   user: PropTypes.object,
   setUserArtists: PropTypes.func,
+  isFollowed: PropTypes.bool
 };
 
 export default ArtistCards;

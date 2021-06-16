@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { useFormik } from 'formik';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { compareArtists, getArtists } from '../../helpers/data/artistData';
+import { compareArtists } from '../../helpers/data/artistData';
 import ArtistCards from '../Artists/ArtistCards';
 
 const useStyles = makeStyles({
@@ -26,12 +26,12 @@ const SearchForm = ({ user, setUserArtists }) => {
       artist: ''
     },
     onSubmit: (artist) => {
-      compareArtists(user, String(Object.values(artist)[0]));
-      getArtists(String(Object.values(artist)[0]))
+      compareArtists(user, String(Object.values(artist)[0]))
         .then((response) => {
           if (response !== undefined && response.length >= 1) {
             setNoArtists(false);
             setSearchArtists(response);
+            console.warn(response);
           } else {
             setSearchArtists([]);
             setNoArtists(true);
@@ -87,6 +87,7 @@ const SearchForm = ({ user, setUserArtists }) => {
           uri={artist.uri}
           artistId={artist.id}
           setUserArtists={setUserArtists}
+          isFollowed={artist.isFollowed}
         />
         ))
         : ''
