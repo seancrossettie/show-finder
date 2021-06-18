@@ -36,7 +36,8 @@ const EventCards = ({
   uri,
   eventId,
   user,
-  setUserEvents
+  setUserEvents,
+  isSaved
 }) => {
   const classes = useStyles();
   const history = useHistory();
@@ -95,7 +96,10 @@ const EventCards = ({
         <Link href={uri} target='_blank'>
           Link to SongKick Event
         </Link>
-        <Button color='primary' variant='outlined' onClick={() => createShow()}>Save this show</Button>
+        { isSaved
+          ? <Typography color='primary'>Show Saved</Typography>
+          : <Button color='primary' variant='outlined' onClick={() => createShow()}>Save this show</Button>
+        }
       </CardActions>
     </Card>
   );
@@ -111,6 +115,7 @@ EventCards.propTypes = {
   eventId: PropTypes.number,
   user: PropTypes.object,
   setUserEvents: PropTypes.func,
+  isSaved: PropTypes.bool,
 };
 
 export default EventCards;

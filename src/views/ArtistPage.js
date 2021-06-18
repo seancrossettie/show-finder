@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import HomeButton from '../components/Navigation/HomeButton';
 import SearchButton from '../components/Navigation/SearchButton';
-import getArtistEvents from '../helpers/data/eventData';
+import { compareEvents } from '../helpers/data/eventData';
 import { getSingleArtist } from '../helpers/data/artistData';
 import EventCards from '../components/Events/EventCards';
 
@@ -12,19 +12,29 @@ const ArtistPage = ({ user, setUserEvents }) => {
   const { id } = useParams();
   const [events, setEvents] = useState([]);
   const [pageArtist, setPageArtist] = useState({});
+  const [noEvents, setNoEvents] = useState(false);
 
   useEffect(() => {
-    getArtistEvents(id).then(setEvents);
     getSingleArtist(id).then(setPageArtist);
+    compareEvents(user, id).then(setEvents);
   }, []);
+
+  useEffect(() => {
+    if (events.length === 0) {
+      setNoEvents(true);
+    } else {
+      setNoEvents(false);
+    }
+  });
 
   return (
     <>
       <HomeButton />
       <SearchButton />
       <Typography variant='h1' color='primary'>{pageArtist.displayName}</Typography>
-      { events
-        ? events.map((event, i) => (
+      { noEvents
+        ? <Typography variant='h5' color='primary'>No Upcoming Events for this Artist</Typography>
+        : events.map((event, i) => (
         <EventCards
           key={i}
           displayName={event.displayName}
@@ -36,9 +46,9 @@ const ArtistPage = ({ user, setUserEvents }) => {
           eventId={event.id}
           user={user}
           setUserEvents={setUserEvents}
+          isSaved={event.isSaved}
         />
         ))
-        : <Typography>No Upcoming Events for this Artist</Typography>
       }
     </>
   );
