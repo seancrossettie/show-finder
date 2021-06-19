@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
-import HomeButton from '../components/Navigation/HomeButton';
-import SearchButton from '../components/Navigation/SearchButton';
-import { compareEvents } from '../helpers/data/eventData';
-import { getSingleArtist } from '../helpers/data/artistData';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import EventCards from '../components/Events/EventCards';
+import HomeButton from '../components/Navigation/HomeButton';
+import { getSingleArtist } from '../helpers/data/artistData';
+import { compareEvents } from '../helpers/data/eventData';
 
 const ArtistPage = ({ user, setUserEvents }) => {
   const { id } = useParams();
@@ -30,7 +29,6 @@ const ArtistPage = ({ user, setUserEvents }) => {
   return (
     <>
       <HomeButton />
-      <SearchButton />
       <Typography variant='h1' color='primary'>{pageArtist.displayName}</Typography>
       { noEvents
         ? <Typography variant='h5' color='primary'>No Upcoming Events for this Artist</Typography>
@@ -38,10 +36,11 @@ const ArtistPage = ({ user, setUserEvents }) => {
         <EventCards
           key={i}
           displayName={event.displayName}
-          date={event.start.date}
+          startDate={event.start.date}
+          endDate={event.end.date}
           location={event.location.city}
           type={event.type}
-          venue={event.displayName}
+          venue={event.venue.displayName}
           uri={event.uri}
           eventId={event.id}
           user={user}

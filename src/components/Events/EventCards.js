@@ -1,8 +1,7 @@
-import { Button } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import moment from 'moment';
@@ -17,7 +16,10 @@ const useStyles = makeStyles({
     backgroundColor: '#000000',
     border: '10%',
     borderColor: '#EEE5E9',
-    margin: 10
+    margin: 10,
+  },
+  date: {
+    marginBottom: 10,
   },
   title: {
     fontSize: 28,
@@ -29,7 +31,8 @@ const useStyles = makeStyles({
 
 const EventCards = ({
   displayName,
-  date,
+  startDate,
+  endDate,
   location,
   type,
   venue,
@@ -41,14 +44,16 @@ const EventCards = ({
 }) => {
   const classes = useStyles();
   const history = useHistory();
-  const newD = moment(new Date(date)).format('MMMM d, YYYY');
+  const startD = moment(new Date(startDate)).format('MMMM d, YYYY');
+  const endD = moment(new Date(endDate)).format('MMMM d, YYYY');
 
   const [saveEvent, setSaveEvent] = useState({
     displayName,
     eventId,
     uri,
     uid: user.uid,
-    date,
+    startDate,
+    endDate,
     type,
     location,
     venue,
@@ -61,7 +66,8 @@ const EventCards = ({
       eventId,
       uri,
       uid: user.uid,
-      date,
+      startDate,
+      endDate,
       type,
       location,
       venue,
@@ -74,31 +80,24 @@ const EventCards = ({
   return (
     <Card className={classes.root} variant='outlined'>
       <CardContent>
+        <Grid container justify='space-between'>
+          <Grid>
+            <Typography className={classes.date} variant='body2' color='primary'>
+              {startD} - {endD}
+            </Typography>
+          </Grid>
+        </Grid>
         <Typography className={classes.title} color='primary' gutterBottom>
           {displayName}
         </Typography>
-        <Typography variant="h5" component="h2" color='primary'>
-          {newD}
-        </Typography>
-        <Typography className={classes.pos} color='primary'>
-          {location}
-        </Typography>
-        <Typography variant="body2" component="p" color='primary'>
-          {type}
-          <br />
-        </Typography>
         <Typography variant="body2" component='p' color='primary'>
-          {venue}
-          <br />
+          {venue} - {location}
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href={uri} target='_blank'>
-          Link to SongKick Event
-        </Link>
         { isSaved
           ? <Typography color='primary'>Show Saved</Typography>
-          : <Button color='primary' variant='outlined' onClick={() => createShow()}>Save this show</Button>
+          : <Button color='primary' variant='outlined' onClick={() => createShow()}>Save</Button>
         }
       </CardActions>
     </Card>
@@ -107,7 +106,8 @@ const EventCards = ({
 
 EventCards.propTypes = {
   displayName: PropTypes.string,
-  date: PropTypes.string,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
   location: PropTypes.string,
   type: PropTypes.string,
   venue: PropTypes.string,

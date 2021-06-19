@@ -5,11 +5,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useHistory } from 'react-router';
 import { deleteEvent, updateEvent } from '../../helpers/data/eventFbData';
 
 const MyEventCards = ({
   displayName,
-  date,
+  startDate,
+  endDate,
   location,
   type,
   venue,
@@ -19,7 +21,6 @@ const MyEventCards = ({
   firebaseKey,
   tickets,
   setUserEvents,
-  artistId
 }) => {
   const useStyles = makeStyles({
     root: {
@@ -27,7 +28,10 @@ const MyEventCards = ({
       backgroundColor: '#000000',
       border: '10%',
       borderColor: '#EEE5E9',
-      margin: 10
+      margin: 10,
+    },
+    date: {
+      marginBottom: 10,
     },
     title: {
       fontSize: 28,
@@ -37,22 +41,22 @@ const MyEventCards = ({
     },
   });
   const classes = useStyles();
+  const history = useHistory();
+  const startD = moment(new Date(startDate)).format('MMMM d, YYYY');
+  const endD = moment(new Date(startDate)).format('MMMM d, YYYY');
 
   const updatedEvent = {
     displayName,
-    date,
+    startDate,
+    endDate,
     location,
     type,
     venue,
     uri,
     eventId,
-    user,
     firebaseKey,
     tickets,
   };
-
-  const d = new Date(date);
-  const newD = moment(d).format('MMMM d, YYYY');
 
   const handleButtonClick = (t) => {
     switch (t) {
@@ -70,7 +74,7 @@ const MyEventCards = ({
         }
         break;
       case 'details':
-        console.warn(artistId);
+        history.push('/event-details/:id');
         break;
       default:
     }
@@ -79,17 +83,14 @@ const MyEventCards = ({
   return (
     <Card className={classes.root} variant='outlined'>
       <CardContent>
-        <Typography className={classes.title} color="primary" gutterBottom>
+        <Typography className={classes.date} variant='body2' color='primary'>
+          {startD} - {endD}
+        </Typography>
+        <Typography className={classes.title} color='primary' gutterBottom>
           {displayName}
         </Typography>
-        <Typography variant="body2" component="p" color="primary">
-          {type}
-        </Typography>
-        <Typography variant="h5" component="h2" color="primary">
-          {newD}
-        </Typography>
-        <Typography className={classes.pos} color="primary">
-          {location}
+        <Typography variant="body2" component='p' color='primary'>
+          {venue} - {location}
         </Typography>
       </CardContent>
       <CardActions>
@@ -107,7 +108,8 @@ const MyEventCards = ({
 
 MyEventCards.propTypes = {
   displayName: PropTypes.string,
-  date: PropTypes.string,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
   location: PropTypes.string,
   type: PropTypes.string,
   venue: PropTypes.string,
