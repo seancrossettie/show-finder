@@ -15,6 +15,8 @@ const MyEventsPage = ({ user, userEvents, setUserEvents }) => {
     }
   }, []);
 
+  console.warn(userEvents);
+
   return (
     <>
       <HomeButton />
