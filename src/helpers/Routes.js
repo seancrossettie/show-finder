@@ -7,6 +7,7 @@ import MyArtistsPage from '../views/MyArtistsPage';
 import MyEventsPage from '../views/MyEventsPage';
 import NotFound from '../views/NotFound';
 import SearchPage from '../views/SearchPage';
+import EventPage from '../views/EventPage';
 
 function Routes({
   user, userArtists, setUserArtists, userEvents, setUserEvents
@@ -18,6 +19,7 @@ function Routes({
       <Route exact path='/my-events' component={() => <MyEventsPage user={user} userEvents={userEvents} setUserEvents={setUserEvents} />} />
       <Route exact path='/search' component={() => <SearchPage user={user} setUserArtists={setUserArtists} />} />
       <Route path='/artist-events/:id' component={() => <ArtistPage user={user} userEvents={userEvents} setUserEvents={setUserEvents} />} />
+      <Route path='/event-details/:id' component={() => <EventPage user={user} userEvents={userEvents} setUserEvents={setUserEvents} />} />
       <Route exact path='*' component={NotFound} />
     </Switch>
   );

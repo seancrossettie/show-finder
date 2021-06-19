@@ -37,7 +37,6 @@ const ArtistPage = ({ user, setUserEvents }) => {
           key={i}
           displayName={event.displayName}
           startDate={event.start.date}
-          endDate={event.end.date}
           location={event.location.city}
           type={event.type}
           venue={event.venue.displayName}
