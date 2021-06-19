@@ -32,7 +32,6 @@ const useStyles = makeStyles({
 const EventCards = ({
   displayName,
   startDate,
-  endDate,
   location,
   type,
   venue,
@@ -45,7 +44,6 @@ const EventCards = ({
   const classes = useStyles();
   const history = useHistory();
   const startD = moment(new Date(startDate)).format('MMMM d, YYYY');
-  const endD = moment(new Date(endDate)).format('MMMM d, YYYY');
 
   const [saveEvent, setSaveEvent] = useState({
     displayName,
@@ -53,7 +51,6 @@ const EventCards = ({
     uri,
     uid: user.uid,
     startDate,
-    endDate,
     type,
     location,
     venue,
@@ -67,7 +64,6 @@ const EventCards = ({
       uri,
       uid: user.uid,
       startDate,
-      endDate,
       type,
       location,
       venue,
@@ -83,7 +79,7 @@ const EventCards = ({
         <Grid container justify='space-between'>
           <Grid>
             <Typography className={classes.date} variant='body2' color='primary'>
-              {startD} - {endD}
+              {startD}
             </Typography>
           </Grid>
         </Grid>
@@ -107,7 +103,6 @@ const EventCards = ({
 EventCards.propTypes = {
   displayName: PropTypes.string,
   startDate: PropTypes.string,
-  endDate: PropTypes.string,
   location: PropTypes.string,
   type: PropTypes.string,
   venue: PropTypes.string,

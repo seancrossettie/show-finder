@@ -77,10 +77,10 @@ const SearchForm = ({ user, setUserArtists }) => {
         : ''
       }
       { searchArtists
-        ? searchArtists.map((artist) => (
+        ? searchArtists.map((artist, i) => (
         <ArtistCards
           user={user}
-          key={artist.id}
+          key={i}
           displayName={artist.displayName}
           onTourUntil={artist.onTourUntil}
           uri={artist.uri}

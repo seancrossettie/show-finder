@@ -6,7 +6,24 @@ const apiKey = songKickApi;
 
 const getArtistEvents = (artistId) => new Promise((resolve, reject) => {
   axios.get(`https://api.songkick.com/api/3.0/artists/${artistId}/calendar.json?apikey=${apiKey}`)
+    .then((response) => {
+      if (response) {
+        resolve(response.data.resultsPage.results.event);
+      } else {
+        resolve([]);
+      }
+    }).catch((error) => reject(error));
+});
+
+const getSingleEvent = (eventId) => new Promise((resolve, reject) => {
+  axios.get(`https://api.songkick.com/api/3.0/events/${eventId}.json?apikey=${apiKey}`)
     .then((response) => resolve(response.data.resultsPage.results.event))
+    .catch((error) => reject(error));
+});
+
+const getEventArtists = (eventId) => new Promise((resolve, reject) => {
+  axios.get(`https://api.songkick.com/api/3.0/events/${eventId}.json?apikey=${apiKey}`)
+    .then((response) => resolve(response.data.resultsPage.results.event.performance))
     .catch((error) => reject(error));
 });
 
@@ -24,4 +41,6 @@ const compareEvents = (user, artistId) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export { getArtistEvents, compareEvents };
+export {
+  getArtistEvents, getSingleEvent, getEventArtists, compareEvents
+};

@@ -11,7 +11,6 @@ import { deleteEvent, updateEvent } from '../../helpers/data/eventFbData';
 const MyEventCards = ({
   displayName,
   startDate,
-  endDate,
   location,
   type,
   venue,
@@ -43,12 +42,10 @@ const MyEventCards = ({
   const classes = useStyles();
   const history = useHistory();
   const startD = moment(new Date(startDate)).format('MMMM d, YYYY');
-  const endD = moment(new Date(startDate)).format('MMMM d, YYYY');
 
   const updatedEvent = {
     displayName,
     startDate,
-    endDate,
     location,
     type,
     venue,
@@ -58,7 +55,7 @@ const MyEventCards = ({
     tickets,
   };
 
-  const handleButtonClick = (t) => {
+  const handleButtonClick = (t, id) => {
     switch (t) {
       case 'delete':
         deleteEvent(firebaseKey, user)
@@ -74,7 +71,7 @@ const MyEventCards = ({
         }
         break;
       case 'details':
-        history.push('/event-details/:id');
+        history.push(`/event-details/${id}`);
         break;
       default:
     }
@@ -84,7 +81,7 @@ const MyEventCards = ({
     <Card className={classes.root} variant='outlined'>
       <CardContent>
         <Typography className={classes.date} variant='body2' color='primary'>
-          {startD} - {endD}
+          {startD}
         </Typography>
         <Typography className={classes.title} color='primary' gutterBottom>
           {displayName}
@@ -96,7 +93,7 @@ const MyEventCards = ({
       <CardActions>
         <Button color='primary' variant='outlined' onClick={() => handleButtonClick('delete')}>Remove</Button>
         <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
-        <Button color='primary' variant='outlined' onClick={() => handleButtonClick('details')}>Details</Button>
+        <Button color='primary' variant='outlined' onClick={() => handleButtonClick('details', eventId)}>Details</Button>
         { tickets
           ? <Button color='primary' variant='outlined' onClick={() => handleButtonClick('tickets')}>Tickets Purchased</Button>
           : <Button color='primary' variant='outlined' onClick={() => handleButtonClick('tickets')}>Tickets Not Purchased</Button>
