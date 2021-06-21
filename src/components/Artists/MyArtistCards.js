@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     backgroundColor: '#000000',
     border: '10%',
     borderColor: '#EEE5E9',
-    margin: 10
+    margin: 10,
   },
   title: {
     fontSize: 28,
