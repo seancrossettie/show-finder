@@ -9,8 +9,6 @@ import { compareArtists } from '../../helpers/data/artistData';
 import ArtistCards from '../Artists/ArtistCards';
 
 const useStyles = makeStyles({
-  root: {
-  },
   input: {
     color: '#EEE5E9',
   }
@@ -48,6 +46,7 @@ const SearchForm = ({ user, setUserArtists }) => {
               <TextField
                 autoComplete='off'
                 className={classes.root}
+                autoFocus={true}
                 fullWidth
                 variant='filled'
                 margin='normal'
@@ -73,7 +72,7 @@ const SearchForm = ({ user, setUserArtists }) => {
         </form>
       </Grid>
       { noArtists
-        ? <Typography color='primary' variant='h3'>Sorry, no Artists match this search.</Typography>
+        ? <Typography color='primary' variant='h4'>Sorry, no artists match this search.</Typography>
         : ''
       }
       { searchArtists

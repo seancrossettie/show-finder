@@ -2,7 +2,6 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
@@ -75,15 +74,14 @@ const ArtistCards = ({
           <Typography className={classes.title} variant="h5" component="h2" color='primary'>
             {displayName}
           </Typography>
-          <Typography color='primary' gutterBottom>
-             On Tour Until: {onTourUntil}
-          </Typography>
-          <Link href={uri} target='_blank'>
-            Link to SongKick Page
-          </Link>
+          { onTourUntil
+            ? <Typography color='primary' gutterBottom>On Tour Until: {onTourUntil}</Typography>
+            : <Typography color='primary' gutterBottom>Not Currently Touring</Typography>
+          }
         </CardContent>
         <CardActions>
           <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Events</Button>
+          <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
           { isFollowed
             ? <Typography color='primary'>Following this artist</Typography>
             : <Button color='primary' variant='outlined' onClick={() => handleButtonClick('create')}>Follow this artist</Button>
