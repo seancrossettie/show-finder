@@ -13,10 +13,14 @@ const getArtists = (artist) => new Promise((resolve, reject) => {
 const compareArtists = (user, artist) => new Promise((resolve, reject) => {
   Promise.all([getArtists(artist), getMyArtists(user)])
     .then(([searchArtistArr, myFollowed]) => {
-      resolve(searchArtistArr.map((artistObj) => ({
-        ...artistObj,
-        isFollowed: Boolean(myFollowed.find((followed) => followed.artistId === artistObj.id))
-      })));
+      if (searchArtistArr && myFollowed) {
+        resolve(searchArtistArr.map((artistObj) => ({
+          ...artistObj,
+          isFollowed: Boolean(myFollowed.find((followed) => followed.artistId === artistObj.id))
+        })));
+      } else {
+        resolve([]);
+      }
     })
     .catch((error) => reject(error));
 });
