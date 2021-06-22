@@ -1,8 +1,11 @@
 import axios from 'axios';
+import firebaseConfig from '../apiKeys';
 import { getMyArtists } from './artistFbData';
-import songKickApi from './songKickApi';
+// import songKickApiKey from './songKickApiKey';
 
-const apiKey = songKickApi;
+const apiKey = firebaseConfig.skApiKey;
+
+console.warn(apiKey);
 
 const getArtists = (artist) => new Promise((resolve, reject) => {
   axios.get(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${apiKey}&query=${artist}`)

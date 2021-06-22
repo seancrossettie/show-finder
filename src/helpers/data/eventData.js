@@ -1,8 +1,9 @@
 import axios from 'axios';
+import firebaseConfig from '../apiKeys';
 import { getMyEvents } from './eventFbData';
-import songKickApi from './songKickApi';
+// import songKickApiKey from './songKickApiKey';
 
-const apiKey = songKickApi;
+const apiKey = firebaseConfig.skApiKey;
 
 const getArtistEvents = (artistId) => new Promise((resolve, reject) => {
   axios.get(`https://api.songkick.com/api/3.0/artists/${artistId}/calendar.json?apikey=${apiKey}`)
