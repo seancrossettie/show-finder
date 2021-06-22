@@ -89,9 +89,9 @@ const MyArtistCards = ({
         </Grid>
       </CardContent>
     <CardActions>
-      <Button color='primary' variant='outlined' onClick={() => handleButtonClick('delete')}>Unfollow</Button>
+      <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Events</Button>
       <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
-      <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Upcoming Events</Button>
+      <Button color='primary' variant='outlined' onClick={() => handleButtonClick('delete')}>Unfollow</Button>
     </CardActions>
   </Card>
   );

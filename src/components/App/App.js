@@ -20,12 +20,9 @@ function App() {
           uid: authed.uid,
           user: authed.email.split('@')[0]
         };
-
         setUser(userObj);
-
         getMyArtists(userObj)
           .then(setUserArtists);
-
         getMyEvents(userObj)
           .then(setUserEvents);
       } else if (user || user === null) {

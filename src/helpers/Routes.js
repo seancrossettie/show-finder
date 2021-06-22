@@ -14,7 +14,7 @@ function Routes({
 }) {
   return (
     <Switch>
-      <Route exact path='/' component={HomePage} />
+      <Route exact path='/' component={() => <HomePage user={user} userArtists={userArtists} setUserArtists={setUserArtists} />} />
       <Route exact path='/my-artists' component={() => <MyArtistsPage user={user} userArtists={userArtists} setUserArtists={setUserArtists} />} />
       <Route exact path='/my-events' component={() => <MyEventsPage user={user} userEvents={userEvents} setUserEvents={setUserEvents} />} />
       <Route exact path='/search' component={() => <SearchPage user={user} setUserArtists={setUserArtists} />} />

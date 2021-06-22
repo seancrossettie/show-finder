@@ -50,7 +50,7 @@ const SearchForm = ({ user, setUserArtists }) => {
                 fullWidth
                 variant='filled'
                 margin='normal'
-                label='Type an artists name here...'
+                label='Search for artists...'
                 name='artist'
                 value={formik.values.artist}
                 InputProps={{

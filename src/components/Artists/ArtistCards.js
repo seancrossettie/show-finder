@@ -1,9 +1,11 @@
+import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
@@ -67,28 +69,38 @@ const ArtistCards = ({
     }
   };
 
+  const tourDate = moment(new Date(onTourUntil)).format('MMMM d, YYYY');
+
   return (
-    <>
-      <Card className={classes.root} variant="outlined">
-        <CardContent>
-          <Typography className={classes.title} variant="h5" component="h2" color='primary'>
-            {displayName}
-          </Typography>
-          { onTourUntil
-            ? <Typography color='primary' gutterBottom>On Tour Until: {onTourUntil}</Typography>
-            : <Typography color='primary' gutterBottom>Not Currently Touring</Typography>
-          }
-        </CardContent>
-        <CardActions>
-          <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Events</Button>
-          <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
-          { isFollowed
-            ? <Typography color='primary'>Following this artist</Typography>
-            : <Button color='primary' variant='outlined' onClick={() => handleButtonClick('create')}>Follow this artist</Button>
-          }
-        </CardActions>
-      </Card>
-    </>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+        <Grid container>
+        <Grid item xs={9} sm={11}>
+            <Typography className={classes.title} variant="h5" component="h2" color='primary'>
+              {displayName}
+            </Typography>
+          </Grid>
+          <Grid item xs={3} sm={1}>
+            { isFollowed
+              ? <Typography variant='body1' color='secondary'>Followed</Typography>
+              : ''
+            }
+          </Grid>
+        </Grid>
+        { onTourUntil
+          ? <Typography color='primary' gutterBottom>On Tour Until {tourDate}</Typography>
+          : <Typography color='primary' gutterBottom>Not Currently Touring</Typography>
+        }
+      </CardContent>
+      <CardActions>
+        <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Events</Button>
+        <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
+        { isFollowed
+          ? ''
+          : <Button color='primary' variant='outlined' onClick={() => handleButtonClick('create')}>Follow</Button>
+        }
+      </CardActions>
+    </Card>
   );
 };
 
