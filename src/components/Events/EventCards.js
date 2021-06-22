@@ -57,6 +57,10 @@ const EventCards = ({
     tickets: false,
   });
 
+  const handleButtonClick = (id) => {
+    history.push(`/event-details/${id}`);
+  };
+
   const createShow = () => {
     setSaveEvent({
       displayName,
@@ -95,6 +99,8 @@ const EventCards = ({
           ? <Typography color='primary'>Show Saved</Typography>
           : <Button color='primary' variant='outlined' onClick={() => createShow()}>Save</Button>
         }
+        <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
+        <Button color='primary' variant='outlined' onClick={() => handleButtonClick(eventId)}>Details</Button>
       </CardActions>
     </Card>
   );

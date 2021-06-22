@@ -40,7 +40,7 @@ const EventArtistCards = ({
       </Typography>
     </CardContent>
     <CardActions>
-      <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Artist Page</Button>
+      <Button color='primary' variant='outlined' onClick={() => handleHistory(artistId)}>Artist Schedule</Button>
     </CardActions>
   </Card>
   );

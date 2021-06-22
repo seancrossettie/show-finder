@@ -5,8 +5,6 @@ import { getMyArtists } from './artistFbData';
 
 const apiKey = firebaseConfig.skApiKey;
 
-console.warn(apiKey);
-
 const getArtists = (artist) => new Promise((resolve, reject) => {
   axios.get(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${apiKey}&query=${artist}`)
     .then((response) => resolve(response.data.resultsPage.results.artist))

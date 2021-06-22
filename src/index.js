@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@material-ui/core';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from 'firebase';
 import React from 'react';
@@ -8,9 +8,19 @@ import App from './components/App/App';
 import firebaseConfig from './helpers/apiKeys';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
-import theme from './styles/muiTheme';
 
 firebase.initializeApp(firebaseConfig);
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#EEE5E9',
+    },
+    secondary: {
+      main: '#D1AC00',
+    },
+  },
+});
 
 ReactDOM.render(
   <React.Fragment>

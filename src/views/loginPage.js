@@ -8,7 +8,7 @@ const LoginPage = () => (
         <Typography variant='h1' color='primary'>Login</Typography>
       </Grid>
       <Grid item>
-        <Button onClick={signInUser} color='primary' variant='outlined'>Sign In</Button>
+        <Button onClick={signInUser} color='primary' variant='outlined' size='large'>Sign In</Button>
       </Grid>
     </Grid>
 );

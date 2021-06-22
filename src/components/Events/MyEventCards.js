@@ -8,6 +8,25 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { deleteEvent, updateEvent } from '../../helpers/data/eventFbData';
 
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+    backgroundColor: '#000000',
+    border: '10%',
+    borderColor: '#EEE5E9',
+    margin: 10,
+  },
+  date: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 28,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
+
 const MyEventCards = ({
   displayName,
   startDate,
@@ -21,24 +40,6 @@ const MyEventCards = ({
   tickets,
   setUserEvents,
 }) => {
-  const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-      backgroundColor: '#000000',
-      border: '10%',
-      borderColor: '#EEE5E9',
-      margin: 10,
-    },
-    date: {
-      marginBottom: 10,
-    },
-    title: {
-      fontSize: 28,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-  });
   const classes = useStyles();
   const history = useHistory();
   const startD = moment(new Date(startDate)).format('MMMM d, YYYY');
@@ -91,7 +92,7 @@ const MyEventCards = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button color='primary' variant='outlined' onClick={() => handleButtonClick('delete')}>Remove</Button>
+        <Button color='primary' variant='outlined' onClick={() => handleButtonClick('delete')}>Not Going</Button>
         <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
         <Button color='primary' variant='outlined' onClick={() => handleButtonClick('details', eventId)}>Details</Button>
         { tickets
