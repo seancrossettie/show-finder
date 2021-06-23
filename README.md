@@ -1,4 +1,5 @@
-# Show Finder
+# Show Finder [![Netlify Status](https://api.netlify.com/api/v1/badges/d4679f67-80be-4ee0-8c56-a208b546d7fb/deploy-status)](https://app.netlify.com/sites/show-finder/deploys)
+[Deployed App](https://show-finder.netlify.app/)
 ## Overview
 This app is a capstone project for the front-end portion of the Nashville Software School. It is a demonstration of my ability in React.js and Firebase CRUD.
 
@@ -15,19 +16,20 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
 - Songkick API
 - Formik
 - Moment.js
+
 ## User Story
-- Google Authentication
+- User is authenticated by Google
 - User can search for new artists and find their upcoming events
 - User can save artists to their profile as followed artists
   - Artists can be unfollowed
+  - Artists can be favorited
 - User can save events to their profile as upcoming events
   - Events can be deleted
-  - Events can be updated
+  - Events can be marked as having tickets purchased for them (updated)
 - App features responsive design
 
 ## Contributors
 [Sean Rossettie](https://github.com/seancrossettie) (@seancrossettie) - [portfolio](https://sean-rossettie.netlify.app/)
-
 
 ## Sreenshots
 
