@@ -1,7 +1,6 @@
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 import { getMyEvents } from './eventFbData';
-// import songKickApiKey from './songKickApiKey';
 
 const apiKey = firebaseConfig.skApiKey;
 
@@ -21,6 +20,36 @@ const getSingleEvent = (eventId) => new Promise((resolve, reject) => {
     .then((response) => resolve(response.data.resultsPage.results.event))
     .catch((error) => reject(error));
 });
+
+// const getSingleEventStart = (eventId) => new Promise((resolve, reject) => {
+//   axios.get(`https://api.songkick.com/api/3.0/events/${eventId}.json?apikey=${apiKey}`)
+//     .then((response) => resolve(response.data.resultsPage.results.event.start.date))
+//     .catch((error) => reject(error));
+// });
+
+// const getSingleEventEnd = (eventId) => new Promise((resolve, reject) => {
+//   axios.get(`https://api.songkick.com/api/3.0/events/${eventId}.json?apikey=${apiKey}`)
+//     .then((response) => {
+//       if (response === undefined || response === {}) {
+//         resolve({});
+//       } else {
+//         resolve((response.data.resultsPage.results.event.end.date));
+//       }
+//     }).catch((error) => reject(error));
+// });
+
+// const getEventDate = (eventId) => new Promise((resolve, reject) => {
+//   Promise.all([getSingleEventStart(eventId), getSingleEventEnd(eventId)])
+//     .then(([eventStart, eventEnd]) => {
+//       if (eventStart && eventEnd) {
+//         resolve([eventStart, eventEnd]);
+//       } else if (eventStart && eventEnd === undefined) {
+//         resolve([eventStart]);
+//       } else {
+//         resolve([]);
+//       }
+//     }).catch((error) => reject(error));
+// });
 
 const getEventArtists = (eventId) => new Promise((resolve, reject) => {
   axios.get(`https://api.songkick.com/api/3.0/events/${eventId}.json?apikey=${apiKey}`)

@@ -81,10 +81,14 @@ const EventCards = ({
     <Card className={classes.root} variant='outlined'>
       <CardContent>
         <Grid container justify='space-between'>
-          <Grid>
-            <Typography className={classes.date} variant='body2' color='primary'>
-              {startD}
-            </Typography>
+          <Grid item xs={9} sm={11}>
+            <Typography className={classes.date} variant='body2' color='primary'>{startD}</Typography>
+          </Grid>
+          <Grid item xs={3} sm={1}>
+            { isSaved
+              ? <Typography variant='body1' color='secondary'>Saved</Typography>
+              : ''
+            }
           </Grid>
         </Grid>
         <Typography className={classes.title} color='primary' gutterBottom>
@@ -96,7 +100,7 @@ const EventCards = ({
       </CardContent>
       <CardActions>
         { isSaved
-          ? <Typography color='primary'>Show Saved</Typography>
+          ? ''
           : <Button color='primary' variant='outlined' onClick={() => createShow()}>Save</Button>
         }
         <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>

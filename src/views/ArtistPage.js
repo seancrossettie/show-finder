@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -29,7 +29,11 @@ const ArtistPage = ({ user, setUserEvents }) => {
   return (
     <>
       <HomeButton />
-      <Typography variant='h1' color='primary'>{pageArtist.displayName}</Typography>
+      <Grid container>
+        <Grid item>
+          <Typography variant='h1' color='primary'>{pageArtist.displayName}</Typography>
+        </Grid>
+      </Grid>
       { noEvents
         ? <Typography variant='h5' color='primary'>No Upcoming Events for this Artist</Typography>
         : events.map((event, i) => (

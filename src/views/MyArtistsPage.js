@@ -20,7 +20,7 @@ const MyArtistsPage = ({ user, userArtists, setUserArtists }) => {
       <HomeButton />
       <Typography variant='h1' color='primary'>My Artists</Typography>
       { noArtists
-        ? <Typography variant='h5' color='primary'>You have no saved artists.</Typography>
+        ? <Typography variant='h5' color='primary'>You have no followed artists.</Typography>
         : userArtists.map((artist, i) => (
           <MyArtistCards
             key={i}
