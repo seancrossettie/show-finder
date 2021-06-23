@@ -75,7 +75,7 @@ const ArtistCards = ({
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Grid container>
-        <Grid item xs={9} sm={11}>
+          <Grid item xs={9} sm={11}>
             <Typography className={classes.title} variant="h5" component="h2" color='primary'>
               {displayName}
             </Typography>
