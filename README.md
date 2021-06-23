@@ -32,6 +32,12 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
 [Sean Rossettie](https://github.com/seancrossettie) (@seancrossettie) - [portfolio](https://sean-rossettie.netlify.app/)
 
 ## Sreenshots
+<img width="1792" alt="Screen Shot 2021-06-22 at 8 48 17 PM" src="https://user-images.githubusercontent.com/76828201/123022498-7fa76300-d39b-11eb-913d-6bfbb0221ab4.png">
+<img width="1792" alt="Screen Shot 2021-06-22 at 8 48 27 PM" src="https://user-images.githubusercontent.com/76828201/123022506-83d38080-d39b-11eb-817a-afb832568705.png">
+<img width="1791" alt="Screen Shot 2021-06-22 at 8 48 35 PM" src="https://user-images.githubusercontent.com/76828201/123022515-8635da80-d39b-11eb-9876-38ae358501ce.png">
+<img width="1792" alt="Screen Shot 2021-06-22 at 8 48 43 PM" src="https://user-images.githubusercontent.com/76828201/123022517-87ff9e00-d39b-11eb-972a-9be6681e2d2a.png">
+<img width="1792" alt="Screen Shot 2021-06-22 at 8 47 03 PM" src="https://user-images.githubusercontent.com/76828201/123022486-7c13dc00-d39b-11eb-97b2-2fb17f667047.png">
+
 
 ## Relevant Links
 [ERD](https://dbdiagram.io/d/60b6c36fb29a09603d178e17)
