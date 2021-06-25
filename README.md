@@ -28,6 +28,12 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
   - Events can be marked as having tickets purchased for them (updated)
 - App features responsive design
 
+
+## Next Steps
+Some features I would like to include on a later version will include:
+- An ability for the user to search for events
+- An interface that allows the user to buy tickets (using an external API)
+- A suggested artists tab that displays artists that are similar to a user's favorited artists
 ## Contributors
 [Sean Rossettie](https://github.com/seancrossettie) (@seancrossettie) - [portfolio](https://sean-rossettie.netlify.app/)
 
