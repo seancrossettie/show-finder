@@ -1,11 +1,12 @@
 import {
+  Button,
   Grid, makeStyles, Typography
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import MyArtistCards from '../components/Artists/MyArtistCards';
 import NavBar from '../components/Navigation/NavBar';
-import SearchForm from '../components/Search Form/SearchForm';
 import { getMyFavoriteArtists } from '../helpers/data/artistFbData';
 
 const useStyles = makeStyles({
@@ -16,33 +17,44 @@ const useStyles = makeStyles({
   favoriteTitle: {
     marginTop: '5rem',
   },
+  searchBtn: {
+    marginTop: '4rem',
+    color: ''
+  }
 });
 
 const HomePage = ({ user, setUserArtists }) => {
   const classes = useStyles();
   const [favArtists, setFavArtists] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     getMyFavoriteArtists(user).then(setFavArtists);
   }, []);
 
+  const handleHistory = (route) => {
+    history.push(route);
+  };
+
   return (
     <>
     <NavBar />
-      <div className='landing-view'>
+        <div className='landing-view'>
+          <Grid container direction='column' alignContent='center'>
+            <Grid item xs={12} md={10} className={classes.title} align='center'>
+              <Typography variant='h1'>Show Finder</Typography>
+            </Grid>
+            <Grid item tem xs={12} md={10} align='center'>
+              <Typography variant='h3'>A platform to search for artist&apos;s upcoming shows</Typography>
+              <Button className={classes.searchBtn} variant='outlined' size='large' onClick={() => handleHistory('/search')}>Search For Artists</Button>
+            </Grid>
+          </Grid>
+        </div>
         <Grid container direction='column' alignContent='center'>
-          <Grid item md={1} color='primary'/>
-          <Grid item xs={12} md={10} className={classes.title}>
-            <Typography variant='h3' color='primary'>Search for your favorite artist&apos;s upcoming shows</Typography>
-            <Typography variant='body1' color='primary'>Keep track of shows, discover live music near you</Typography>
+          <Grid item xs={12} md={10} className={classes.favoriteTitle} align='center'>
+            <Typography variant='h2' color='primary'>Your Favorite Artists</Typography>
           </Grid>
-          <Grid item xs={12} md={10}>
-            <SearchForm user={user} setUserArtists={setUserArtists} />
-          </Grid>
-          <Grid item xs={12} md={10} className={classes.favoriteTitle}>
-            <Typography variant='h3' color='primary'>Check out your favorite artists...</Typography>
-          </Grid>
-          <Grid item xs={12} md={10}>
+          <Grid item xs={12} md={10} align='center'>
             { favArtists.length > 0
               ? favArtists.map((artist, i) => (
                 <MyArtistCards
@@ -59,9 +71,7 @@ const HomePage = ({ user, setUserArtists }) => {
               : <Typography variant='body1' color='primary'>You have no favorite artists. Search for some above!</Typography>
             }
           </Grid>
-          <Grid item md={1}/>
         </Grid>
-      </div>
     </>
   );
 };

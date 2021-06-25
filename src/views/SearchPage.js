@@ -7,7 +7,7 @@ import SearchForm from '../components/Search Form/SearchForm';
 const SearchPage = ({ user, setUserArtists }) => (
   <>
     <HomeButton />
-    <Typography variant='h1' color='primary'>Search Artists</Typography>
+    <Typography variant='h1' color='primary'>Search for Artists</Typography>
     <SearchForm user={user} setUserArtists={setUserArtists} />
   </>
 );
