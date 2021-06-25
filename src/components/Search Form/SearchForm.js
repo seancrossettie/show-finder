@@ -18,6 +18,9 @@ const SearchForm = ({ user, setUserArtists }) => {
   const classes = useStyles();
   const [searchArtists, setSearchArtists] = useState([]);
   const [noArtists, setNoArtists] = useState(false);
+  const [artistMessage, setArtistMessage] = useState(false);
+
+  console.warn(artistMessage);
 
   const formik = useFormik({
     initialValues: {
@@ -29,9 +32,11 @@ const SearchForm = ({ user, setUserArtists }) => {
           if (response !== undefined && response.length >= 1) {
             setNoArtists(false);
             setSearchArtists(response);
+            setArtistMessage(true);
           } else {
             setSearchArtists([]);
             setNoArtists(true);
+            setArtistMessage(false);
           }
         });
     },
@@ -73,6 +78,10 @@ const SearchForm = ({ user, setUserArtists }) => {
       </Grid>
       { noArtists
         ? <Typography color='primary' variant='h4'>Sorry, no artists match this search.</Typography>
+        : ''
+      }
+      { artistMessage
+        ? <Typography color='primary' variant='h4' style={{ marginBottom: '2rem', marginTop: '1rem' }}>Artists that match this search</Typography>
         : ''
       }
       { searchArtists

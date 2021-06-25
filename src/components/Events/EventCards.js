@@ -101,7 +101,7 @@ const EventCards = ({
       <CardActions>
         { isSaved
           ? ''
-          : <Button color='primary' variant='outlined' onClick={() => createShow()}>Save</Button>
+          : <Button color='primary' variant='outlined' onClick={() => createShow()}>Going</Button>
         }
         <Button color='primary' variant='outlined' href={uri} target='_blank'>Songkick</Button>
         <Button color='primary' variant='outlined' onClick={() => handleButtonClick(eventId)}>Details</Button>
