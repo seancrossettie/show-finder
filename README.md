@@ -38,11 +38,14 @@ Some features I would like to include on a later version will include:
 [Sean Rossettie](https://github.com/seancrossettie) (@seancrossettie) - [portfolio](https://sean-rossettie.netlify.app/)
 
 ## Sreenshots
-<img width="1792" alt="Screen Shot 2021-06-22 at 8 47 03 PM" src="https://user-images.githubusercontent.com/76828201/123022486-7c13dc00-d39b-11eb-97b2-2fb17f667047.png">
-<img width="1792" alt="Screen Shot 2021-06-22 at 8 48 17 PM" src="https://user-images.githubusercontent.com/76828201/123022498-7fa76300-d39b-11eb-913d-6bfbb0221ab4.png">
-<img width="1792" alt="Screen Shot 2021-06-22 at 8 48 27 PM" src="https://user-images.githubusercontent.com/76828201/123022506-83d38080-d39b-11eb-817a-afb832568705.png">
-<img width="1791" alt="Screen Shot 2021-06-22 at 8 48 35 PM" src="https://user-images.githubusercontent.com/76828201/123022515-8635da80-d39b-11eb-9876-38ae358501ce.png">
-<img width="1792" alt="Screen Shot 2021-06-22 at 8 48 43 PM" src="https://user-images.githubusercontent.com/76828201/123022517-87ff9e00-d39b-11eb-972a-9be6681e2d2a.png">
+<img width="1790" alt="Screen Shot 2021-07-01 at 1 22 57 PM" src="https://user-images.githubusercontent.com/76828201/124172594-a2a6d680-da6f-11eb-83ed-48fffe6fbee6.png">
+<img width="1792" alt="Screen Shot 2021-07-01 at 1 23 11 PM" src="https://user-images.githubusercontent.com/76828201/124172601-a4709a00-da6f-11eb-8ca1-55239a74b24a.png">
+<img width="1792" alt="Screen Shot 2021-07-01 at 1 23 22 PM" src="https://user-images.githubusercontent.com/76828201/124172605-a63a5d80-da6f-11eb-9ee4-be1bbd5cc496.png">
+<img width="1792" alt="Screen Shot 2021-07-01 at 1 23 38 PM" src="https://user-images.githubusercontent.com/76828201/124172610-a8042100-da6f-11eb-93c0-af1630767307.png">
+<img width="1792" alt="Screen Shot 2021-07-01 at 1 23 47 PM" src="https://user-images.githubusercontent.com/76828201/124172619-a9354e00-da6f-11eb-944c-33647e128ff7.png">
+<img width="1792" alt="Screen Shot 2021-07-01 at 1 23 56 PM" src="https://user-images.githubusercontent.com/76828201/124172622-aa667b00-da6f-11eb-8fe1-e42484b89e63.png">
+
+
 
 
 
