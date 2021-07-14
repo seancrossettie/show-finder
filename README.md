@@ -1,5 +1,5 @@
 # Show Finder [![Netlify Status](https://api.netlify.com/api/v1/badges/d4679f67-80be-4ee0-8c56-a208b546d7fb/deploy-status)](https://app.netlify.com/sites/show-finder/deploys)
-[Deployed App](https://show-finder.netlify.app/)
+[Link to Deployed App](https://show-finder.netlify.app/)
 ## Overview
 This app is a capstone project for the front-end portion of the Nashville Software School. It is a demonstration of my ability in React.js and Firebase CRUD.
 
