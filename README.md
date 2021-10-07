@@ -9,7 +9,7 @@ As a musician and concert lover, I try to keep up on when my favorite bands/arti
 
 ## Demo Video
 
-[Video](https://www.loom.com/share/f2f379329245405280402354f267f36e)
+
 
 ## Tech Used
 - React.js
