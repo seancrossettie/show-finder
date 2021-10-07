@@ -8,8 +8,7 @@ Show Finder is an app that allows a user to search for artists and find their up
 As a musician and concert lover, I try to keep up on when my favorite bands/artists are playing and where I can go to see them. I wanted to build an app that allows a user to search for and save events and artists to their user profile, allowing them to easily keep track of upcoming shows and events that I want to attend. The purpose of this app is to aggregate a person's show calendar and preferences into one page. 
 
 ## Demo Video
-
-
+https://www.loom.com/share/c5bb042f2e59447da9aa036221819d6e
 
 ## Tech Used
 - React.js
